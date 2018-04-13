@@ -1,16 +1,7 @@
-var config = {
-    type: Phaser.AUTO,
-    width: 1200,
-    height: 800,
-    scene: {
-        preload: preload,
-        create: create,
-        update: update
-    }
-};
+
 
 // initialise Phaser
-var game = new Phaser.Game(config);
+var game = new Phaser.Game(1200, 800, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
 // var bootstate = {
 //   preload: function() {
@@ -33,14 +24,17 @@ var game = new Phaser.Game(config);
 
 
 function preload() {
-  this.load.image('cat', 'assets/cat_head.png');
+  game.load.image('cat', 'assets/cat_head.png');
 }
 
 function create() {
  //create all button use
- cat =  this.add.image(100, 400, 'cat').setScale(0.5);
+ cat =  game.add.image(0, 350, 'cat').scale.setTo(0.5, 0.5);
+ game.input.addPointer();
+ game.input.onUp.add(function ()
+ {
+ }, this);
 }
-
 
 function update() {
 
