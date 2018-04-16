@@ -18,9 +18,10 @@ var game = new Phaser.Game(1200, 800, Phaser.AUTO, '', { preload: preload, creat
 // };
 
 // game.state.add('bootstate', bootstate);
-// //ajouter les state
-//
-// game.state.start('bootstate');
+game.state.add('menustate', menustate);
+//ajouter les states
+
+game.state.start('menustate');
 
 
 function preload() {
@@ -28,7 +29,7 @@ function preload() {
 }
 
 var cat;
-var speed = -10;
+var speed = -50;
 
 function create() {
  game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -42,7 +43,7 @@ function create() {
  //cat.body.angle = Math.PI / 2;
  //cat.angle = 90;
  cat.body.acceleration.x = speed;
- cat.body.maxVelocity.x = 40;
+ cat.body.maxVelocity.x = 160;
  //cat.body.maxAcceleration.set(10);
  //cat.body.moveTo(100, 10, Phaser.ANGLE_LEFT);
  //timer = game.time.create(false);
