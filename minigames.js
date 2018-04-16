@@ -3,13 +3,15 @@ var game = new Phaser.Game(WIDTH, HEIGHT, Phaser.AUTO, '', { preload: preload, c
 
 
 // game.state.add('bootstate', bootstate);
-//game.state.add('menustate', menustate);
+game.state.add('menustate', menustate);
+//game.state.add('runstate', runstate);
+//ajouter les states
 
 game.state.add('winstate', winstate);
 game.state.add('losestate', losestate);
 game.state.add('gamestate', gamestate);
-//ajouter les states
-game.state.start('gamestate');
+
+game.state.start('menustate');
 
 function preload(){
 
