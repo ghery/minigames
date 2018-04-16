@@ -1,7 +1,7 @@
 
 
 // initialise Phaser
-var game = new Phaser.Game(1200, 800, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(WIDTH, HEIGHT, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
 // var bootstate = {
 //   preload: function() {
@@ -29,7 +29,8 @@ function preload() {
 }
 
 var cat;
-var speed = -50;
+var speed = -10;
+var timer;
 
 function create() {
  game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -37,31 +38,20 @@ function create() {
  cat =  game.add.sprite(300, 350, 'cat');
  cat.scale.setTo(0.5, 0.5)
  game.physics.enable(cat);
- cat.body.collideWorldBounds = true;
- //cat.velocity = new Phaser.Point(10,0);
- //cat.speed = 10;
- //cat.body.angle = Math.PI / 2;
- //cat.angle = 90;
+ //cat.body.collideWorldBounds = true;
  cat.body.acceleration.x = speed;
- cat.body.maxVelocity.x = 160;
- //cat.body.maxAcceleration.set(10);
- //cat.body.moveTo(100, 10, Phaser.ANGLE_LEFT);
- //timer = game.time.create(false);
- //timer.start();
-
+ cat.body.maxVelocity.x = 40;
+ timer = game.time.create(false);
+ timer.start(); // quand timer fini, use destroy
  game.input.addPointer();
- /*game.time.events.repeat(Phaser.Timer.SECOND * 1, -1, function ()
- {
-     cat.x -= 10
- }, this);*/
  game.input.onUp.add(function ()
  {
-     //cat.body.acceleration.x = 20;
      cat.x += 30;
-     console.log("test");
  }, this);
 }
 
 function update() {
-
+    console.log(timer.seconds);
+    console.log(cat.width);
+    victory();
 }
