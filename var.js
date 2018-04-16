@@ -1,0 +1,3 @@
+var WIDTH = 1200;
+var HEIGHT = 800;
+var TIME_LIMIT = 15;
