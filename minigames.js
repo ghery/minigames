@@ -19,6 +19,7 @@ var game = new Phaser.Game(WIDTH, HEIGHT, Phaser.AUTO, '', { preload: preload, c
 
 // game.state.add('bootstate', bootstate);
 game.state.add('menustate', menustate);
+game.state.add('runstate', runstate);
 //ajouter les states
 
 game.state.start('menustate');

@@ -14,7 +14,7 @@ var menustate = {
     Lapin.scale.setTo(0.25, 0.25);
     Perroquet = game.add.image(450, 170, 'Perroquet');
     Perroquet.scale.setTo(0.25, 0.25);
-    Jouer = game.add.button(game.world.centerX - 200, 550, 'Jouer', actionOnClick, this, 2, 1, 0);
+    Jouer = game.add.button(game.world.centerX - 175, 550, 'Jouer', actionOnClick, this, 2, 1, 0);
   },
 
   update: function () {
@@ -24,5 +24,5 @@ var menustate = {
 };
 
 function actionOnClick () {
-
+  levelSelector();
 }
