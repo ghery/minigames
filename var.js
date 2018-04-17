@@ -8,5 +8,6 @@ var LASTLEVEL = 0;
 var character;
 var timer;
 
-var lose_message; // lose state
-var win_message;
+var lose_message; //message lose state
+var win_message; // message win state
+// var time_text; // in timer.js temps restant
