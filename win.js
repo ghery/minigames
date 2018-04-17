@@ -8,7 +8,6 @@ function characterInScreenX(charac)
 
 function victory()
 {
-    console.log(timer.seconds);
     if (character.x < 0 && character.x + character.height < 0)
         defeat();
     else if (timer.seconds >= TIME_LIMIT && character.x > 0)
@@ -21,7 +20,6 @@ function victory()
 
 function defeat()
 {
-    console.log("defeat");
     lose_message = "Oups, tu n'as pas couru assez vite !\nTu as raté ton rendez-vous CAF !";
     game.state.start('losestate');
 }
