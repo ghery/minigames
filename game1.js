@@ -4,9 +4,11 @@ var gamestate = {
 
     preload: function() {
       game.load.image('cat', 'assets/cat_head.png');
+      //preload_font();
     },
 
     create: function() {
+     time_text = game.add.text(0, 0, "", time_text_style);
      game.physics.startSystem(Phaser.Physics.ARCADE);
      //create all button use
      character =  game.add.sprite(300, 350, 'cat');
@@ -25,8 +27,10 @@ var gamestate = {
     },
 
     update: function() {
-        //console.log(timer.seconds);
-        //console.log(character.width);
-        victory();
+        print_timer(time_text);
+        if (victory() != 0) // -1 defeat, 1 victory
+        {
+            timer.destroy();
+        }
     }
 };

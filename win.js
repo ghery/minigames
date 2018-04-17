@@ -1,21 +1,19 @@
-/*
-function characterInScreenX(charac)
-{
-    if (charac.x > 0 && charac.x < WIDTH && (charac.x + charac.width) > 0 && (charac.x + charac.width) < WIDTH)
-        return (1);
-    return (0);
-}*/
 
 function victory()
 {
     if (character.x < 0 && character.x + character.height < 0)
+    {
         defeat();
+        return (-1);
+    }
     else if (timer.seconds >= TIME_LIMIT && character.x > 0)
     {
         win_message = "Bravo, tu es arrivé à l'heure";
         //game.state.destroy("gamestate");
         game.state.start('winstate');
+        return (1);
     }
+    return (0);
 }
 
 function defeat()
