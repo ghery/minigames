@@ -10,6 +10,7 @@ game.state.add('menustate', menustate);
 game.state.add('winstate', winstate);
 game.state.add('losestate', losestate);
 game.state.add('gamestate', gamestate);
+game.state.add('game2state', game2state);
 
 game.state.start('menustate');
 

@@ -1,4 +1,4 @@
-var speed = -10;
+var speed = -100;
 
 var gamestate = {
 
@@ -14,7 +14,7 @@ var gamestate = {
      game.physics.enable(character);
      //character.body.collideWorldBounds = true;
      character.body.acceleration.x = speed;
-     character.body.maxVelocity.x = 40;
+     character.body.maxVelocity.x = 140;
      timer = game.time.create(false);
      timer.start(); // quand timer fini, use destroy
      game.input.addPointer();
