@@ -9,22 +9,13 @@ function characterInScreenX(charac)
 function victory()
 {
     console.log(timer.seconds);
-    if (timer.seconds >= TIME_LIMIT)
+    if (character.x < 0 && character.x + character.height < 0)
+        defeat();
+    else if (timer.seconds >= TIME_LIMIT && character.x > 0)
     {
-        console.log("hello");
-        if (character.x > 0)
-        {
-            console.log("win");
-            win_message = "Bravo, tu es arrivé, à l'heure";
-            //game.state.destroy("gamestate");
-            game.state.start('winstate');
-        }
-        else {
-            defeat();
-        }
-    }
-    else {
-        console.log("not normal");
+        win_message = "Bravo, tu es arrivé à l'heure";
+        //game.state.destroy("gamestate");
+        game.state.start('winstate');
     }
 }
 
