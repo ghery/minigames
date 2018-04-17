@@ -8,6 +8,11 @@ function levelSelector(){
   if( random == 0)
   {
     LASTLEVEL = 0;
-    game.state.start('gamestate');
+    game.state.start('game2state');
   }
+  // if( random == 1)
+  // {
+  //   LASTLEVEL = 1;
+  //   game.state.start('game2state');
+  // }
 }
