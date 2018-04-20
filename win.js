@@ -1,27 +1,13 @@
 
-function victory()
+function victory(str)
 {
-    if (character && character.x && character.height)
-    {
-        if (character.x < 0 && character.x + character.height < 0)
-        {
-            defeat();
-            return (-1);
-        }
-        else if (timer.seconds >= TIME_LIMIT && character.x + character.height > 0)
-        {
-            win_message = "Bravo tu es arrivé à l'heure !";
-            //game.state.destroy("gamestate");
-            game.state.start('winstate');
-            return (1);
-        }
-    }
-    return (0);
+    win_message = str;
+    game.state.start('winstate');
 }
 
-function defeat()
+function defeat(str)
 {
-    lose_message = "Oups, tu n'as pas couru assez vite !\nTu as raté ton rendez-vous CAF !";
+    lose_message = str;
     game.state.start('losestate');
 }
 

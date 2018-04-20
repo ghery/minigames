@@ -11,6 +11,7 @@ game.state.add('winstate', winstate);
 game.state.add('losestate', losestate);
 game.state.add('gamestate', gamestate);
 game.state.add('game2state', game2state);
+game.state.add('game3state', game3state);
 
 game.state.start('menustate');
 
