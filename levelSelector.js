@@ -5,6 +5,7 @@ function levelSelector(){
   //   var random = game.rnd.integer() % LEVELNB;
   // }
 
+  console.log(random);
   if( random == 0)
   {
     LASTLEVEL = 0;

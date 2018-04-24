@@ -27,6 +27,7 @@ var game2state = {
        Billet.body.acceleration.y = 600;
        Billet.body.maxVelocity.y = Billetvelocity;
      }, this);
+     score = 0;
     },
 
     update: function() {
@@ -63,6 +64,7 @@ var game2state = {
 function collisionHandeler(obj1, obj2){
   obj2.destroy();
   score += 1;
+  console.log("score:", score);
   if (score == 20){
     victory("Bravo tu en attrapé assez!");
   }

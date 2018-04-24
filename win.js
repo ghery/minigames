@@ -25,6 +25,12 @@ var winstate = {
         text.align = "center";
         text.x = game.world.centerX - text.width / 2; // calcul a faire apres avoir defini la police
         text.y = game.world.centerY - text.height / 2;
+
+        game.input.addPointer();
+        game.input.onUp.add(function ()
+        {
+          levelSelector();
+        }, this);
     },
 
     update: function() {
@@ -45,7 +51,7 @@ var losestate = {
         text.fontSize = 40;
         text.align = "center";
         text.x = game.world.centerX - text.width / 2; // calcul a faire apres avoir defini la police
-        text.y = game.world.centerY - text.height / 2;
+        text.y = game.world.centerY - text.height / 2; 
     },
 
     update: function() {

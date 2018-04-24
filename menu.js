@@ -32,5 +32,6 @@ var menustate = {
 };
 
 function actionOnClick () {
+  console.log("bite");
   levelSelector();
 }
