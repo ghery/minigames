@@ -22,7 +22,7 @@ var menustate = {
     Jouer = game.add.button(0, 550, 'Jouer', actionOnClick, this, 2, 1, 0);
     Jouer.scale.setTo(0.6, 0.6);
     Jouer.x = WIDTH / 2 - Jouer.width / 2;
-
+    LIFE = 3;
   },
 
   update: function () {
