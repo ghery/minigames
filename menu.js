@@ -23,6 +23,7 @@ var menustate = {
     Jouer.scale.setTo(0.6, 0.6);
     Jouer.x = WIDTH / 2 - Jouer.width / 2;
     LIFE = 3;
+    SCORE = 0;
   },
 
   update: function () {
@@ -32,6 +33,5 @@ var menustate = {
 };
 
 function actionOnClick () {
-  console.log("bite");
   levelSelector();
 }

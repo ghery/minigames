@@ -31,8 +31,6 @@ var game2state = {
     },
 
     update: function() {
-        //console.log(timer.seconds);
-        //console.log(character.width);
         game.physics.arcade.overlap(portefeuille, groupBillet, collisionHandeler, null, this);
     if (game.input.onUp)
     {
@@ -64,7 +62,6 @@ var game2state = {
 function collisionHandeler(obj1, obj2){
   obj2.destroy();
   score += 1;
-  console.log("score:", score);
   if (score == 20){
     victory("Bravo tu en attrapé assez!");
   }

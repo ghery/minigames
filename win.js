@@ -18,13 +18,20 @@ var winstate = {
     },
 
     create: function() {
-        text = game.add.text(0, 0, win_message);
+        text = game.add.text(20, 20, win_message);
         text.font = 'Montserrat';
         text.addColor("#fff", 0);
         text.fontSize = 40;
         text.align = "center";
         text.x = game.world.centerX - text.width / 2; // calcul a faire apres avoir defini la police
         text.y = game.world.centerY - text.height / 2;
+
+        SCORE += 100 + (game.rnd.integer() % 122);
+
+        scoreText = game.add.text(0, 0, "Score:" + SCORE);
+        scoreText.font = 'Montserrat';
+        scoreText.addColor("#fff", 0);
+        scoreText.fontSize = 40;
 
         game.input.addPointer();
         game.input.onUp.add(function ()
@@ -34,7 +41,6 @@ var winstate = {
     },
 
     update: function() {
-
     }
 };
 
