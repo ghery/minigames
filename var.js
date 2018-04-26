@@ -1,6 +1,6 @@
 // taille fenetre de phaser
-var WIDTH = 1200;
-var HEIGHT = 800;
+var WIDTH = window.innerWidth;
+var HEIGHT = window.innerHeight;
 var TIME_LIMIT = 15; // limite temps des jeux de facon generale
 var LEVELNB = 2;
 var LASTLEVEL = 0;
