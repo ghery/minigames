@@ -1,6 +1,6 @@
 function handleIncorrect(){
    if(!game.device.desktop){
-      document.getElementById("turn").style.display="block";
+      document.getElementById("turn").style.display="flex";
    }
 }
 
@@ -26,7 +26,10 @@ function handleCorrect(){
   }
 }
 
-var firstRunLandscape;
+
+
+var firstRunLandscape = false;
+
 
 var menustate = {
   preload: function() {
@@ -43,6 +46,11 @@ var menustate = {
   create: function () {
     game.stage.backgroundColor = "#d9c88b";
 
+    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+
+    //have the game centered horizontally
+    this.scale.pageAlignHorizontally = true;
+    this.scale.pageAlignVertically = true;
 
     //Title.scale.setTo(1, 1);
     Cochon = game.add.image(0, 0, 'Cochon');

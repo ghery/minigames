@@ -10,5 +10,14 @@ body {
 	top:0px;
 	left:0px;
 	background-color:white;
-	display:none;
+    background-color: #d9c88b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display:none;
+}
+
+#turn div{
+    font-size: 80px;
+    font-weight: bold;
 }
