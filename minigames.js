@@ -4,7 +4,6 @@
 // initialise Phaser
 var game = new Phaser.Game(WIDTH, HEIGHT, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
-
 // game.state.add('bootstate', bootstate);
 game.state.add('menustate', menustate);
 //game.state.add('runstate', runstate);
