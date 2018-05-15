@@ -49,7 +49,7 @@ var gamestate = {
      game.input.onUp.add(function ()
      {
          character.x += 30;
-     }, this);
+     }, game);
     },
 
     update: function() {
@@ -57,7 +57,7 @@ var gamestate = {
         route.tilePosition.x -= 2;
         if (TIME_LIMIT - timer.seconds < 2)
             caf.x -= 2;
-        if (this.victory() != 0) // -1 defeat, 1 victory
+        if (game.victory() != 0) // -1 defeat, 1 victory
             timer.destroy();
     },
     victory: function(){
@@ -65,7 +65,7 @@ var gamestate = {
         {
             if (character.x < 0 && character.x + character.height < 0)
             {
-                this.defeat();
+                game.defeat();
                 return (-1);
             }
             else if (timer.seconds >= TIME_LIMIT && character.x + character.height > 0)
