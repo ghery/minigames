@@ -1,3 +1,6 @@
+/*FBInstant.initializeAsync().then(function() {
+    FBInstant.setLoadingProgress(100);
+    FBInstant.startGameAsync().then(function() {*/
 // initialise Phaser
 var game = new Phaser.Game(WIDTH, HEIGHT, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
@@ -11,8 +14,10 @@ game.state.add('losestate', losestate);
 game.state.add('gamestate', gamestate);
 game.state.add('game2state', game2state);
 game.state.add('game3state', game3state);
+game.state.add('game5state', game5state);
 
 game.state.start('menustate');
+//game.state.start('game5state');
 
 function preload(){
 
@@ -25,3 +30,5 @@ function create(){
 function update(){
 
 }
+/*})
+})*/

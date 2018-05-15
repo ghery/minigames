@@ -25,6 +25,7 @@ var gamestate = {
 
      tmp = game.add.sprite(0, 0, 'route'); // utiliser juste pour connaitre la bonne valeur pour faire apparaitre la tilesprite
      tmp.y = HEIGHT - tmp.height;
+     tmp.destroy();
      route = game.add.tileSprite(0, 0, WIDTH, HEIGHT, 'route');
      route.y = HEIGHT - tmp.height;
 
@@ -36,7 +37,7 @@ var gamestate = {
 
      character =  game.add.sprite(0, 0, 'cochonours');
      game.physics.enable(character);
-     character.scale.setTo(0.15, 0.15)
+     character.scale.setTo(0.15, 0.15);
      character.x = 350;
      character.y = HEIGHT - character.height;
      character.body.acceleration.x = speed;
