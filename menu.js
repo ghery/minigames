@@ -20,9 +20,9 @@ function handleCorrect(){
 
       //game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
       document.getElementById("turn").style.display="none";
-      //this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
-      //this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-      //this.game.scale.refresh();
+      //game.game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+      //game.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+      //game.game.scale.refresh();
   }
 }
 
@@ -46,11 +46,11 @@ var menustate = {
   create: function () {
     game.stage.backgroundColor = "#d9c88b";
 
-    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
     //have the game centered horizontally
-    this.scale.pageAlignHorizontally = true;
-    this.scale.pageAlignVertically = true;
+    game.scale.pageAlignHorizontally = true;
+    game.scale.pageAlignVertically = true;
 
     //Title.scale.setTo(1, 1);
     Cochon = game.add.image(0, 0, 'Cochon');
@@ -71,7 +71,7 @@ var menustate = {
     Title.x = (WIDTH / 2 - Title.width / 2);
     Title.y = Cochon.y - Title.height * 1.5;
 
-    Jouer = game.add.button(0, 550, 'Jouer', actionOnClick, this, 2, 1, 0);
+    Jouer = game.add.button(0, 550, 'Jouer', actionOnClick, game, 2, 1, 0);
     Jouer.scale.setTo(0.6, 0.6);
     Jouer.x = WIDTH / 2 - Jouer.width / 2;
     Jouer.y = Cochon.y + Cochon.height + Jouer.height / 2;

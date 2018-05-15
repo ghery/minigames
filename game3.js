@@ -25,16 +25,16 @@ var game3state = {
         character.scale.setTo(0.10, 0.10)
         character.body.onCollide = new Phaser.Signal();
         character.body.onCollide.add(function(){
-            this.defeat();1
-        }, this);
+            game.defeat();1
+        }, game);
 
         // OBSTACLE
 
         groupObstacle = game.add.group();
-        this.create_obstacle();
+        game.create_obstacle();
         game.time.events.repeat(Phaser.Timer.SECOND * 1, 15, function (){
-            this.create_obstacle();
-        }, this);
+            game.create_obstacle();
+        }, game);
 
         game.input.addPointer();
         game.input.onUp.add(function ()
@@ -52,13 +52,13 @@ var game3state = {
             }
             g3_move_y = -1;
             g3_b = false;
-        }, this);
+        }, game);
         game.input.onDown.add(function ()
         {
             if (g3_move_y < 0)
                 g3_move_y = game.input.y;
             g3_b = true;
-        }, this);
+        }, game);
     },
     create_obstacle: function(){
         obstacle = groupObstacle.create(WIDTH + 200, 0, 'obstacle');
@@ -73,7 +73,7 @@ var game3state = {
     update: function() {
         game.physics.arcade.collide(character, groupObstacle);
         if (groupObstacle.right < 0)
-            this.victory();
+            game.victory();
     },
     victory: function(){
         victory("Bravo tu as évité les obstacles !");

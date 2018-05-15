@@ -26,12 +26,12 @@ var game2state = {
 
        Billet.body.acceleration.y = 600;
        Billet.body.maxVelocity.y = Billetvelocity;
-     }, this);
+     }, game);
      score = 0;
     },
 
     update: function() {
-        game.physics.arcade.overlap(portefeuille, groupBillet, collisionHandeler, null, this);
+        game.physics.arcade.overlap(portefeuille, groupBillet, collisionHandeler, null, game);
     if (game.input.onUp)
     {
         //  400 is the speed it will move towards the mouse

@@ -37,7 +37,7 @@ var winstate = {
         game.input.onUp.add(function ()
         {
           levelSelector();
-        }, this);
+        }, game);
     },
 
     update: function() {
@@ -81,7 +81,7 @@ var losestate = {
           game.input.onUp.add(function ()
           {
             levelSelector();
-          }, this);
+          }, game);
         }
         else if (LIFE == 1){
           text = game.add.text(0, 0, lose_message);
@@ -108,7 +108,7 @@ var losestate = {
           game.input.onUp.add(function ()
           {
             levelSelector();
-          }, this);
+          }, game);
         }
         else if(LIFE == 0){
           text = game.add.text(0, 0, "GAME OVER!");
@@ -130,7 +130,7 @@ var losestate = {
           game.input.onUp.add(function ()
           {
             game.state.start('menustate');
-          }, this);
+          }, game);
         }
     },
 
