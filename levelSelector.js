@@ -15,5 +15,5 @@ function levelSelector(){
   //   LASTLEVEL = 1;
   //   game.state.start('game2state');
   // }
-  game.state.start('game4state');
+  game.state.start('game6state');
 }
