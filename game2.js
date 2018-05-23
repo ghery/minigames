@@ -26,14 +26,12 @@ var game2state = {
 
        Billet.body.acceleration.y = 600;
        Billet.body.maxVelocity.y = Billetvelocity;
-     }, this);
+     }, game);
      score = 0;
     },
 
     update: function() {
-        //console.log(timer.seconds);
-        //console.log(character.width);
-        game.physics.arcade.overlap(portefeuille, groupBillet, collisionHandeler, null, this);
+        game.physics.arcade.overlap(portefeuille, groupBillet, collisionHandeler, null, game);
     if (game.input.onUp)
     {
         //  400 is the speed it will move towards the mouse
@@ -64,7 +62,6 @@ var game2state = {
 function collisionHandeler(obj1, obj2){
   obj2.destroy();
   score += 1;
-  console.log("score:", score);
   if (score == 20){
     victory("Bravo tu en attrapé assez!");
   }
