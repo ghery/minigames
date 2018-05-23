@@ -1,3 +1,23 @@
 body {
     margin: 0;
+    padding: 0;
+}
+
+#turn{
+	width:100%;
+	height:100%;
+	position:fixed;
+	top:0px;
+	left:0px;
+	background-color:white;
+    background-color: #d9c88b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display:none;
+}
+
+#turn div{
+    font-size: 80px;
+    font-weight: bold;
 }
