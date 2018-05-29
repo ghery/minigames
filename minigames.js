@@ -18,6 +18,7 @@ game.state.add('game3state', game3state);
 game.state.add('game4state', game4state);
 game.state.add('game5state', game5state);
 game.state.add('game6state', game6state);
+game.state.add('game8state', game8state);
 
         game.state.start('menustate');
         //game.state.start('game5state');
