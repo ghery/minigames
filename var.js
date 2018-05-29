@@ -5,7 +5,7 @@ var game;
 var WIDTH = window.innerWidth;
 var HEIGHT = window.innerHeight;
 var TIME_LIMIT = 10; // limite temps des jeux de facon generale
-var LEVELNB = 2;
+var LEVELNB = 4;
 var LASTLEVEL = 0;
 var LIFE = 3;
 var SCORE = 0;

@@ -4,7 +4,7 @@ var gamestate = {
 
     preload: function() {
       game.load.image('cochonours', 'assets/Cochonours_vector.png');
-      game.load.image('instructions', 'assets/Instructions_jeu1.png');
+      game.load.image('instructions', 'assets/Instructions1.png');
       game.load.image('route', 'assets/Route_jeu1.png');
       game.load.image('caf', 'assets/CAF.png');
       //preload_font();
@@ -58,26 +58,25 @@ var gamestate = {
         route.tilePosition.x -= 2;
         if (TIME_LIMIT - timer.seconds < 2)
             caf.x -= 2;
-        if (game.victory() != 0) // -1 defeat, 1 victory
+        if (victory1() != 0) // -1 defeat, 1 victory
             timer.destroy();
-    },
-    victory: function(){
-        if (character && character.x && character.height)
-        {
-            if (character.x < 0 && character.x + character.height < 0)
-            {
-                game.defeat();
-                return (-1);
-            }
-            else if (timer.seconds >= TIME_LIMIT && character.x + character.height > 0)
-            {
-                victory("Bravo tu es arrivé à l'heure !");
-                return (1);
-            }
-        }
-        return (0);
-    },
-    defeat: function(){
-        defeat("Oups, tu n'as pas couru assez vite !\nTu as raté ton rendez-vous CAF !");
     }
 };
+
+
+function victory1(){
+    if (character && character.x && character.height)
+    {
+        if (character.x < 0 && character.x + character.height < 0)
+        {
+            defeat("Oops... tu n'as pas couru assez vite !\nTu as raté ton rendez-vous CAF !");
+            return (-1);
+        }
+        else if (timer.seconds >= TIME_LIMIT && character.x + character.height > 0)
+        {
+            victory("Bien joué !\nMais tu aurais peut être dû prendre un taxi…");
+            return (1);
+        }
+    }
+    return (0);
+}

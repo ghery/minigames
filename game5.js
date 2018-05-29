@@ -6,6 +6,7 @@ var game5state = {
       game.load.image('carton', 'assets/carton.png');
       game.load.image('table', 'assets/table.png');
       game.load.image('fond', 'assets/fondCouloir.png');
+      game.load.image('instructions', 'assets/Instructions5.png');
     },
 
     create: function() {
@@ -54,13 +55,18 @@ var game5state = {
         timer = game.time.create(false);
         timer.start();
 
+        // INSTRUCTIONS
+
+        instructions = game.add.image(0, 0, 'instructions');
+        instructions.x = WIDTH / 2 - instructions.width / 2;
+        instructions.y = HEIGHT / 3;
     },
 
     update: function() {
         print_timer(time_text);
         fond.tilePosition.x -= 1;
         direction = 0;
-        console.log(direction);
+        // console.log(direction);
         if (carton.angle != 90 && carton.angle != -90)
         {
             if (upKey.isDown)
@@ -95,11 +101,11 @@ var game5state = {
         {
             game.world.rotation = 0;
             //game.world.setBounds(0, 0, WIDTH, HEIGHT);
-            victory();
+            victory("Bravo t’as fait un carton !");
         }
         else if (!this.cartonOnTable()){
             game.world.rotation = 0;
-            defeat();
+            defeat("En haut, en bas, à droite, à gauche ! Cette soirée là !\nHa non...pardon t’as perdu");
         }
     },
 

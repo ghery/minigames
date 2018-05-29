@@ -7,6 +7,7 @@ var game6state = {
     preload: function() {
       game.load.image('papier', 'assets/Papier_2.png');
       game.load.image('ecran', 'assets/Ecran.png');
+      game.load.image('instructions', 'assets/Instructions6.png');
     },
 
     create: function() {
@@ -38,6 +39,12 @@ var game6state = {
     timer.start();
 
     time_text = game.add.text(0, 0, "", time_text_style);
+
+    // INSTRUCTIONS
+
+    instructions = game.add.image(0, 0, 'instructions');
+    instructions.x = WIDTH / 2 - instructions.width / 2;
+    instructions.y = HEIGHT / 3;
     },
 
     update: function() {
@@ -45,11 +52,11 @@ var game6state = {
       print_timer(time_text);
 
       if(score == nb_papier){
-        victory("victoire papier");
+        victory("Plus rapide qu’un scanner super puissant !");
       }
 
       if(TIME_LIMIT - timer.seconds <= 0){
-        defeat("Tu ne l'as pas trouver a temps");
+        defeat("Bon courage avec tes papiers ...");
       }
     }
 };
@@ -59,7 +66,7 @@ function onDragStop(papier, pointer) {
     {
       papier.destroy();
       score += 1;
-      console.log("score:" + score);
+      // console.log("score:" + score);
     }
 }
 

@@ -15,6 +15,10 @@ var winstate = {
 
     preload: function() {
         game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+        game.load.image('Win0', 'assets/Rendez_vous_CAF.png');
+        game.load.image('Win1', 'assets/Ecosystème_CAF.png');
+        game.load.image('Win2', 'assets/Demenagement.png');
+        game.load.image('Win3', 'assets/Demarche.png');
     },
 
     create: function() {
@@ -24,7 +28,7 @@ var winstate = {
         text.fontSize = 40;
         text.align = "center";
         text.x = game.world.centerX - text.width / 2; // calcul a faire apres avoir defini la police
-        text.y = game.world.centerY - text.height / 2;
+        text.y = (game.world.centerY - (game.world.centerY/2)) - text.height / 2;
 
         SCORE += 100 + (game.rnd.integer() % 122);
 
@@ -32,6 +36,27 @@ var winstate = {
         scoreText.font = 'Montserrat';
         scoreText.addColor("#fff", 0);
         scoreText.fontSize = 40;
+
+        if(LASTLEVEL == 0){
+          card = game.add.image(0, 0, 'Win0');
+          card.x = game.world.centerX - card.width/2;
+          card.y = game.world.centerY - card.height/4;
+        }
+        else if (LASTLEVEL == 1) {
+          card = game.add.image(0, 0, 'Win1');
+          card.x = game.world.centerX - card.width/2;
+          card.y = game.world.centerY - card.height/4;
+        }
+        else if (LASTLEVEL == 2) {
+          card = game.add.image(0, 0, 'Win2');
+          card.x = game.world.centerX - card.width/2;
+          card.y = game.world.centerY - card.height/4;
+        }
+        else if (LASTLEVEL == 3) {
+          card = game.add.image(0, 0, 'Win3');
+          card.x = game.world.centerX - card.width/2;
+          card.y = game.world.centerY - card.height/4;
+        }
 
         game.input.addPointer();
         game.input.onUp.add(function ()

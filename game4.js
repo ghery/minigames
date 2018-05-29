@@ -3,9 +3,11 @@ var game4state = {
     preload: function() {
       game.load.image('round', 'assets/round.png');
       game.load.image('centre', 'assets/centre_social.png');
+      game.load.image('instructions', 'assets/Instructions4.png');
     },
 
     create: function() {
+
       centre = game.add.sprite(0, 0, 'centre');
       centre.scale.setTo(0.5, 0.5);
       centre.x = ((game.rnd.integer() % WIDTH - 50) - centre.width/2);
@@ -23,6 +25,12 @@ var game4state = {
       timer.start();
 
       time_text = game.add.text(0, 0, "", time_text_style);
+
+      // INSTRUCTIONS
+
+      instructions = game.add.image(0, 0, 'instructions');
+      instructions.x = WIDTH / 2 - instructions.width / 2;
+      instructions.y = HEIGHT / 3;
     },
 
     update: function() {
@@ -55,11 +63,11 @@ var game4state = {
     & (((round.y + round.height/2) >= (centre.y - 30 + centre.height/2)) & ((round.y + round.height/2) <= (centre.y + 30 + centre.height/2)))){
 
         round.body.velocity.setTo(0, 0);
-        victory("Tu as trouver un centre bien jouer!");
+        victory("Waouh...Plus rapide que la lumière !");
     }
 
     if(TIME_LIMIT - timer.seconds <= 0){
-      defeat("Tu ne l'as pas trouver a temps");
+      defeat("Tu n’as pas trouvé le centre social à temps !");
     }
     }
 };
