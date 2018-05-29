@@ -76,21 +76,39 @@ var game5state = {
             if (SWIPE_Y == -1)
             {
                 carton.x--;
-                game.world.rotation -= 0.001;
+                fond.angle -= 0.02;
+                character.y--;
+                table.y--;
+                carton.y--;
+                //game.world.rotation -= 0.001;
             }
             else if (SWIPE_Y == 1)
             {
-                game.world.rotation += 0.001;
+                //game.world.rotation += 0.001;
+                fond.angle += 0.02;
+                character.y++;
+                table.y++;
+                carton.y++;
                 carton.x++;
+
             }
             else if (direction == 0)
             {
-                game.world.rotation -= 0.001;;
+                //game.world.rotation -= 0.001;;
+                //fond.angle = 10;
+                fond.angle -= 0.02;
+                character.y--;
+                table.y--;
+                carton.y--;
                 carton.x--;
             }
             else
             {
-                game.world.rotation += 0.001;;
+                //game.world.rotation += 0.001;;
+                fond.angle += 0.02;
+                character.y++;
+                table.y++;
+                carton.y++;
                 carton.x++;
             }
         }
