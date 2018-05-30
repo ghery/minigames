@@ -1,4 +1,4 @@
-var speed = -100;
+var Speed = -100;
 
 var gamestate = {
 
@@ -40,7 +40,7 @@ var gamestate = {
      character.scale.setTo(0.15, 0.15);
      character.x = 350;
      character.y = HEIGHT - character.height;
-     character.body.acceleration.x = speed;
+     character.body.acceleration.x = Speed;
      character.body.maxVelocity.x = 140;
 
      timer = game.time.create(false);

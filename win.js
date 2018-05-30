@@ -15,10 +15,14 @@ var winstate = {
 
     preload: function() {
         game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
-        game.load.image('Win0', 'assets/Rendez_vous_CAF.png');
-        game.load.image('Win1', 'assets/Ecosystème_CAF.png');
-        game.load.image('Win2', 'assets/Demenagement.png');
-        game.load.image('Win3', 'assets/Demarche.png');
+        game.load.image('Carte1', 'assets/Carte1.png');
+        game.load.image('Carte2', 'assets/Carte2.png');
+        game.load.image('Carte3', 'assets/Carte3.png');
+        game.load.image('Carte4', 'assets/Carte4.png');
+        game.load.image('Carte5', 'assets/Carte5.png');
+        game.load.image('Carte6', 'assets/Carte6.png');
+        game.load.image('Carte7', 'assets/Carte7.png');
+        game.load.image('Carte8', 'assets/Carte8.png');
     },
 
     create: function() {
@@ -37,23 +41,51 @@ var winstate = {
         scoreText.addColor("#fff", 0);
         scoreText.fontSize = 40;
 
-        if(LASTLEVEL == 0){
-          card = game.add.image(0, 0, 'Win0');
-          card.x = game.world.centerX - card.width/2;
-          card.y = game.world.centerY - card.height/4;
-        }
-        else if (LASTLEVEL == 1) {
-          card = game.add.image(0, 0, 'Win1');
+        if(LASTLEVEL == 1){
+          card = game.add.image(0, 0, 'Carte1');
+          card.scale.setTo(0.8, 0.8);
           card.x = game.world.centerX - card.width/2;
           card.y = game.world.centerY - card.height/4;
         }
         else if (LASTLEVEL == 2) {
-          card = game.add.image(0, 0, 'Win2');
+          card = game.add.image(0, 0, 'Carte2');
+          card.scale.setTo(0.8, 0.8);
           card.x = game.world.centerX - card.width/2;
           card.y = game.world.centerY - card.height/4;
         }
         else if (LASTLEVEL == 3) {
-          card = game.add.image(0, 0, 'Win3');
+          card = game.add.image(0, 0, 'Carte3');
+          card.scale.setTo(0.8, 0.8);
+          card.x = game.world.centerX - card.width/2;
+          card.y = game.world.centerY - card.height/4;
+        }
+        else if (LASTLEVEL == 4) {
+          card = game.add.image(0, 0, 'Carte4');
+          card.scale.setTo(0.8, 0.8);
+          card.x = game.world.centerX - card.width/2;
+          card.y = game.world.centerY - card.height/4;
+        }
+        if(LASTLEVEL == 5){
+          card = game.add.image(0, 0, 'Carte5');
+          card.scale.setTo(0.8, 0.8);
+          card.x = game.world.centerX - card.width/2;
+          card.y = game.world.centerY - card.height/4;
+        }
+        else if (LASTLEVEL == 6) {
+          card = game.add.image(0, 0, 'Carte6');
+          card.scale.setTo(0.8, 0.8);
+          card.x = game.world.centerX - card.width/2;
+          card.y = game.world.centerY - card.height/4;
+        }
+        else if (LASTLEVEL == 7) {
+          card = game.add.image(0, 0, 'Carte7');
+          card.scale.setTo(0.8, 0.8);
+          card.x = game.world.centerX - card.width/2;
+          card.y = game.world.centerY - card.height/4;
+        }
+        else if (LASTLEVEL == 8) {
+          card = game.add.image(0, 0, 'Carte8');
+          card.scale.setTo(0.8, 0.8);
           card.x = game.world.centerX - card.width/2;
           card.y = game.world.centerY - card.height/4;
         }
