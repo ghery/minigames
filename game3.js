@@ -24,17 +24,13 @@ var game3state = {
         character.body.collideWorldBounds = true;
         character.scale.setTo(0.10, 0.10)
         character.body.onCollide = new Phaser.Signal();
-        character.body.onCollide.add(function(){
-            game.defeat();1
-        }, game);
+        character.body.onCollide.add(this.defeat, game);
 
         // OBSTACLE
 
         groupObstacle = game.add.group();
-        game.create_obstacle();
-        game.time.events.repeat(Phaser.Timer.SECOND * 1, 15, function (){
-            game.create_obstacle();
-        }, game);
+        this.create_obstacle();
+        game.time.events.repeat(Phaser.Timer.SECOND * 1, 15, this.create_obstacle, game);
 
         game.input.addPointer();
         game.input.onUp.add(function ()
@@ -73,7 +69,7 @@ var game3state = {
     update: function() {
         game.physics.arcade.collide(character, groupObstacle);
         if (groupObstacle.right < 0)
-            game.victory();
+            this.victory();
     },
     victory: function(){
         victory("Bravo tu as évité les obstacles !");
