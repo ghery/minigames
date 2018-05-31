@@ -1,4 +1,3 @@
-
 function victory(str)
 {
     win_message = str;
@@ -12,6 +11,9 @@ function defeat(str)
 }
 
 var winstate = {
+
+    tmp : 0,
+    i : 0,
 
     preload: function() {
         game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
@@ -34,58 +36,75 @@ var winstate = {
         text.x = game.world.centerX - text.width / 2; // calcul a faire apres avoir defini la police
         text.y = (game.world.centerY - (game.world.centerY/2)) - text.height / 2;
 
-        SCORE += 100 + (game.rnd.integer() % 122);
+        //SCORE += 100 + (game.rnd.integer() % 122);
 
-        scoreText = game.add.text(0, 0, "Score:" + SCORE);
+        i = 0;
+        tmp = 100 + (game.rnd.integer() % 122);
+        SCORE += 100 + tmp;
+
+        scoreAdd = game.add.text(0, 0, "+"+tmp);
+        scoreAdd.font = 'Montserrat';
+        scoreAdd.addColor("#fff", 0);
+        scoreAdd.fontSize = 30;
+        //scoreAdd.x = WIDTH / 2 - scoreAdd.width / 2;
+        //scoreAdd.y = HEIGHT / 2 - scoreAdd.height / 2;
+        scoreAdd.x = WIDTH / 2 - scoreAdd.width / 2;
+        scoreAdd.y = text.y - scoreAdd.height;
+
+        scoreText = game.add.text(0, 0, "Score: " + (SCORE - tmp));
         scoreText.font = 'Montserrat';
         scoreText.addColor("#fff", 0);
         scoreText.fontSize = 40;
+        //scoreText.x = WIDTH / 2 - scoreText.width / 2;
+        //scoreText.y = HEIGHT / 2 - scoreText.height / 2 - scoreAdd.height - 20;
+        scoreText.x = WIDTH / 2 - scoreText.width / 2;
+        scoreText.y = scoreAdd.y - scoreText.height;
 
         if(LASTLEVEL == 1){
           card = game.add.image(0, 0, 'Carte1');
-          card.scale.setTo(0.8, 0.8);
+          card.scale.setTo(0.7, 0.7);
           card.x = game.world.centerX - card.width/2;
           card.y = game.world.centerY - card.height/4;
         }
         else if (LASTLEVEL == 2) {
           card = game.add.image(0, 0, 'Carte2');
-          card.scale.setTo(0.8, 0.8);
+          card.scale.setTo(0.7, 0.7);
           card.x = game.world.centerX - card.width/2;
           card.y = game.world.centerY - card.height/4;
         }
         else if (LASTLEVEL == 3) {
           card = game.add.image(0, 0, 'Carte3');
-          card.scale.setTo(0.8, 0.8);
+          card.scale.setTo(0.7, 0.7);
           card.x = game.world.centerX - card.width/2;
           card.y = game.world.centerY - card.height/4;
         }
         else if (LASTLEVEL == 4) {
           card = game.add.image(0, 0, 'Carte4');
-          card.scale.setTo(0.8, 0.8);
+          card.scale.setTo(0.7, 0.7);
           card.x = game.world.centerX - card.width/2;
           card.y = game.world.centerY - card.height/4;
         }
         if(LASTLEVEL == 5){
           card = game.add.image(0, 0, 'Carte5');
-          card.scale.setTo(0.8, 0.8);
+          card.scale.setTo(0.7, 0.7);
           card.x = game.world.centerX - card.width/2;
           card.y = game.world.centerY - card.height/4;
         }
         else if (LASTLEVEL == 6) {
           card = game.add.image(0, 0, 'Carte6');
-          card.scale.setTo(0.8, 0.8);
+          card.scale.setTo(0.7, 0.7);
           card.x = game.world.centerX - card.width/2;
           card.y = game.world.centerY - card.height/4;
         }
         else if (LASTLEVEL == 7) {
           card = game.add.image(0, 0, 'Carte7');
-          card.scale.setTo(0.8, 0.8);
+          card.scale.setTo(0.7, 0.7);
           card.x = game.world.centerX - card.width/2;
           card.y = game.world.centerY - card.height/4;
         }
         else if (LASTLEVEL == 8) {
           card = game.add.image(0, 0, 'Carte8');
-          card.scale.setTo(0.8, 0.8);
+          card.scale.setTo(0.7, 0.7);
           card.x = game.world.centerX - card.width/2;
           card.y = game.world.centerY - card.height/4;
         }
@@ -98,6 +117,16 @@ var winstate = {
     },
 
     update: function() {
+        if (i <= tmp)
+        {
+            scoreAdd.setText("+"+(tmp - i));
+            scoreText.setText("Score: "+(SCORE - tmp + i));
+            i++;
+        }
+        if (i == tmp)
+        {
+            scoreAdd.destroy();
+        }
     }
 };
 
