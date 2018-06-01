@@ -1,7 +1,6 @@
 var cardstate = {
 
     preload: function() {
-      game.load.image('card', 'assets/desktop.png');
       //preload_font();
     },
 

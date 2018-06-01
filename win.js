@@ -16,15 +16,6 @@ var winstate = {
     i : 0,
 
     preload: function() {
-        game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
-        game.load.image('Carte1', 'assets/Carte1.png');
-        game.load.image('Carte2', 'assets/Carte2.png');
-        game.load.image('Carte3', 'assets/Carte3.png');
-        game.load.image('Carte4', 'assets/Carte4.png');
-        game.load.image('Carte5', 'assets/Carte5.png');
-        game.load.image('Carte6', 'assets/Carte6.png');
-        game.load.image('Carte7', 'assets/Carte7.png');
-        game.load.image('Carte8', 'assets/Carte8.png');
     },
 
     create: function() {
@@ -133,8 +124,6 @@ var winstate = {
 var losestate = {
 
     preload: function() {
-        game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
-        game.load.image('coeur', 'assets/coeur.png');
     },
 
     create: function() {

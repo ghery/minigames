@@ -33,16 +33,8 @@ var firstRunLandscape = false;
 
 var menustate = {
   preload: function() {
-    firstRunLandscape = game.scale.isGameLandscape;
-    game.scale.forceOrientation(true, false);
-  	game.scale.enterIncorrectOrientation.add(handleIncorrect);
-    game.scale.leaveIncorrectOrientation.add(handleCorrect);
-    game.load.image('Cochon', 'assets/Cochon.png');
-    game.load.image('Lapin', 'assets/Lapin.png');
-    game.load.image('Perroquet', 'assets/Perroquet.png');
-    game.load.image('Jouer', 'assets/Bouton_jouer.png');
-    game.load.image('Title', 'assets/Titraille_cafouillages.png');
   },
+  
   create: function () {
     game.stage.backgroundColor = "#d9c88b";
 

@@ -6,10 +6,26 @@ var game5state = {
       game.load.image('carton', 'assets/carton.png');
       game.load.image('table', 'assets/table.png');
       game.load.image('fond', 'assets/fondCouloir.png');
-      game.load.image('instructions', 'assets/Instructions5.png');
+      game.load.image('instructions5', 'assets/instructions5.png');
     },
 
     create: function() {
+      //PAUSE
+      pauseButton = game.add.image(0, 0, 'pause');
+      pauseButton.scale.setTo(0.10, 0.10);
+      pauseButton.x = (WIDTH - pauseButton.width);
+      pauseButton.y = 0;
+      game.input.addPointer();
+      game.input.onUp.add(function ()
+      {
+        if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {
+          Pause(1);
+        }
+        else if (game.input.x > (WIDTH - (pauseButton.width + 5)) && game.input.y < (pauseButton.height + 5) && pauseVar == 1) {
+         Pause(0);
+        }
+      }, game);
+
         time_text = game.add.text(0, 0, "", time_text_style);
 
         // Key
@@ -55,11 +71,11 @@ var game5state = {
         timer = game.time.create(false);
         timer.start();
 
-        // INSTRUCTIONS
+        // instructions5
 
-        instructions = game.add.image(0, 0, 'instructions');
-        instructions.x = WIDTH / 2 - instructions.width / 2;
-        instructions.y = HEIGHT / 3;
+        instructions5 = game.add.image(0, 0, 'instructions5');
+        instructions5.x = WIDTH / 2 - instructions5.width / 2;
+        instructions5.y = HEIGHT / 3;
     },
 
     update: function() {

@@ -3,7 +3,7 @@ var game4state = {
     preload: function() {
       game.load.image('round', 'assets/round.png');
       game.load.image('centre', 'assets/centre_social.png');
-      game.load.image('instructions', 'assets/Instructions4.png');
+      game.load.image('instructions4', 'assets/instructions4.png');
     },
 
     create: function() {
@@ -18,6 +18,22 @@ var game4state = {
       round.x = (game.world.centerX - round.width/2);
       round.y = (game.world.centerY - round.height/2);
 
+      //PAUSE
+      pauseButton = game.add.image(0, 0, 'pause');
+      pauseButton.scale.setTo(0.10, 0.10);
+      pauseButton.x = (WIDTH - pauseButton.width);
+      pauseButton.y = 0;
+      game.input.addPointer();
+      game.input.onUp.add(function ()
+      {
+        if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {
+          Pause(1);
+        }
+        else if (game.input.x > (WIDTH - (pauseButton.width + 5)) && game.input.y < (pauseButton.height + 5) && pauseVar == 1) {
+         Pause(0);
+        }
+      }, game);
+
       game.physics.enable(round, Phaser.Physics.ARCADE);
       game.input.addPointer();
 
@@ -26,11 +42,11 @@ var game4state = {
 
       time_text = game.add.text(0, 0, "", time_text_style);
 
-      // INSTRUCTIONS
+      // instructions4
 
-      instructions = game.add.image(0, 0, 'instructions');
-      instructions.x = WIDTH / 2 - instructions.width / 2;
-      instructions.y = HEIGHT / 3;
+      instructions4 = game.add.image(0, 0, 'instructions4');
+      instructions4.x = WIDTH / 2 - instructions4.width / 2;
+      instructions4.y = HEIGHT / 3;
     },
 
     update: function() {
