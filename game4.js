@@ -63,7 +63,7 @@ var game4state = {
     & (((round.y + round.height/2) >= (centre.y - 30 + centre.height/2)) & ((round.y + round.height/2) <= (centre.y + 30 + centre.height/2)))){
 
         round.body.velocity.setTo(0, 0);
-        victory("Waouh...Plus rapide que la lumière !");
+        victory("Waouh...Plus rapide que la lumière !", 4);
     }
 
     if(TIME_LIMIT - timer.seconds <= 0){

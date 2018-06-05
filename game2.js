@@ -75,7 +75,7 @@ function collisionHandeler(obj1, obj2){
   obj2.destroy();
   score += 1;
   if (score == 20){
-    victory("Ouf tu vas pouvoir remplir ton frigo ce mois-ci ...");
+    victory("Ouf tu vas pouvoir remplir ton frigo ce mois-ci ...", 2);
   }
 }
 

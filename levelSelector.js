@@ -15,7 +15,7 @@ function initArrayLastLevel()
             arrayLastLevel[i] = 0;
         i++;
     }
-    console.log(arrayLastLevel);
+    //console.log(arrayLastLevel);
 }
 initArrayLastLevel();
 
@@ -46,14 +46,15 @@ function isFullArrayLastLevel(){
 }
 
 function levelSelector(){
+
   var random = game.rnd.integer() % LEVELNB + 1;
 
   while(!isInArrayLastLevel(random) || random == LASTLEVEL || random == LASTLASTLEVEL){//random == LASTLEVEL || random == LASTLASTLEVEL){
     if (isFullArrayLastLevel())
         initArrayLastLevel();
     var random = game.rnd.integer() % LEVELNB + 1;
-    console.log(random);
-    console.log(arrayLastLevel);
+    //console.log(random);
+    //console.log(arrayLastLevel);
   }
 
   if( random == 1)
@@ -113,10 +114,10 @@ function levelSelector(){
     game.state.start('game8state');
   }
   else {
-    console.log("random:" + random);
+    //console.log("random:" + random);
     levelSelector();
   }
-  console.log("random:" + random);
+  //console.log("random:" + random);
   // game.state.start('game8state');
   // LASTLEVEL = 2;
 }

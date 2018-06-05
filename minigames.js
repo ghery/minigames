@@ -12,12 +12,14 @@ game = new Phaser.Game(WIDTH, HEIGHT, Phaser.AUTO, '', { preload: preload, creat
 
 game.state.add('winstate', winstate);
 game.state.add('losestate', losestate);
+game.state.add('cardstate', cardstate);
 game.state.add('gamestate', gamestate);
 game.state.add('game2state', game2state);
 game.state.add('game3state', game3state);
 game.state.add('game4state', game4state);
 game.state.add('game5state', game5state);
 game.state.add('game6state', game6state);
+game.state.add('game7state', game7state);
 game.state.add('game8state', game8state);
 
         game.state.start('menustate');

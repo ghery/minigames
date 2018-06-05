@@ -119,7 +119,7 @@ var game5state = {
         {
             game.world.rotation = 0;
             //game.world.setBounds(0, 0, WIDTH, HEIGHT);
-            victory("Bravo t’as fait un carton !");
+            victory("Bravo t’as fait un carton !", 5);
         }
         else if (!this.cartonOnTable()){
             game.world.rotation = 0;

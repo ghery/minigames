@@ -58,7 +58,7 @@ var game8state = {
       print_timer(time_text);
 
       if(TIME_LIMIT - timer.seconds <= 0){
-        victory("Wow bravo ! Tu es un animateur modèle !");
+        victory("Wow bravo ! Tu es un animateur modèle !", 8);
       }
 
       if(enfant1.y > HEIGHT || (enfant2.x + enfant2.width) < 0 || enfant3.x > WIDTH){

@@ -52,7 +52,7 @@ var game6state = {
       print_timer(time_text);
 
       if(score == nb_papier){
-        victory("Plus rapide qu’un scanner super puissant !");
+        victory("Plus rapide qu’un scanner super puissant !", 6);
       }
 
       if(TIME_LIMIT - timer.seconds <= 0){

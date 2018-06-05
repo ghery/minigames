@@ -1,4 +1,6 @@
 body {
+    height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
 }
@@ -20,4 +22,38 @@ body {
 #turn div{
     font-size: 80px;
     font-weight: bold;
+}
+
+h2{
+    margin: auto;
+    width: min-content;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    //width: 100%;
+    width: 80%;
+    margin: auto;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+input[type=text]{
+    width: 300px;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    text-align: center;
+    padding: 0.5px;
 }

@@ -8,8 +8,9 @@ var b_down = false;
 var game3state = {
     preload: function() {
       //game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-      game.load.image('cochonours', 'assets/Cochonours_vector.png');
-      game.load.image('obstacle', 'assets/koala.png');
+      game.load.image('cochonours', 'assets/bus.png');
+      game.load.image('obstacle', 'assets/g3_obstacle.png');
+      game.load.image('route', 'assets/g3_route.png');
       //preload_font();
     },
 
@@ -17,12 +18,14 @@ var game3state = {
         cursors = game.input.keyboard.createCursorKeys();
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
+        route = game.add.tileSprite(0, 0, WIDTH, HEIGHT, 'route');
+
         // CHARACTER
 
         character =  game.add.sprite(0, 0, 'cochonours');
         game.physics.enable(character);
         character.body.collideWorldBounds = true;
-        character.scale.setTo(0.10, 0.10)
+        //character.scale.setTo(0.10, 0.10)
         character.body.onCollide = new Phaser.Signal();
         character.body.onCollide.add(this.defeat, game);
 
@@ -38,13 +41,13 @@ var game3state = {
             var tmp;
             if (g3_move_y < game.input.y)
             {
-                tmp = character.y + obstacle.height;
+                tmp = character.y + character.height;
                 if (tmp + character.height < HEIGHT)
                     character.y = tmp;
             }
             else if (g3_move_y > game.input.y)
             {
-                character.y -= obstacle.height;
+                character.y -= character.height;
             }
             g3_move_y = -1;
             g3_b = false;
@@ -58,8 +61,8 @@ var game3state = {
     },
     create_obstacle: function(){
         obstacle = groupObstacle.create(WIDTH + 200, 0, 'obstacle');
-        obstacle.scale.setTo(0.3, 0.3);
-        obstacle.y = Math.floor(Math.random() * parseInt(HEIGHT / obstacle.height)) * obstacle.height;
+        //obstacle.scale.setTo(0.3, 0.3);
+        obstacle.y = Math.floor(Math.random() * parseInt(HEIGHT / character.height)) * character.height;
         game.physics.enable(obstacle);
         obstacle.checkCollision = true;
         obstacle.body.immovable = true;
@@ -72,7 +75,7 @@ var game3state = {
             this.victory();
     },
     victory: function(){
-        victory("Bravo tu as évité les obstacles !");
+        victory("Bravo tu as évité les obstacles !", 3);
     },
     defeat: function(){
         defeat("BADABOUMBOUMBOUM !");
