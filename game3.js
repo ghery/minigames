@@ -60,7 +60,13 @@ var game3state = {
         }, game);
 
       }
-      
+
+      // INSTRUCTIONS
+
+      instructions3 = game.add.image(0, 0, 'instructions3');
+      instructions3.x = WIDTH / 2 - instructions3.width / 2;
+      instructions3.y = HEIGHT / 3;
+
       //PAUSE
       pauseButton = game.add.image(0, 0, 'pause');
       pauseButton.scale.setTo(0.10, 0.10);
@@ -96,10 +102,10 @@ var game3state = {
             this.victory();
     },
     victory: function(){
-        victory("Bravo tu as évité les obstacles !", 3);
+        victory("Bon… à l’année prochaine ?", 3);
     },
     defeat: function(){
-        defeat("BADABOUMBOUMBOUM !");
+        defeat("Super tu peux aller te baigner !");
     }
 };
 

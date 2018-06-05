@@ -7,6 +7,8 @@ var game8state = {
     },
 
     create: function() {
+      pauseVar = 0;
+
       //PAUSE
       pauseButton = game.add.image(0, 0, 'pause');
       pauseButton.scale.setTo(0.10, 0.10);
@@ -63,6 +65,8 @@ var game8state = {
       instructions8 = game.add.image(0, 0, 'instructions8');
       instructions8.x = WIDTH / 2 - instructions8.width / 2;
       instructions8.y = HEIGHT / 5;
+
+      launchgame8();
     },
 
     update: function() {
@@ -85,4 +89,30 @@ function speed() {
     speed = game.rnd.integer() % speed_max;
   }
   return(speed);
+}
+
+
+function launchgame8() {
+  timer.pause();
+  pauseVar = 1;
+  enfant1.body.acceleration.y = 0;
+  enfant1.body.velocity.y =  0;
+  enfant2.body.acceleration.x = 0;
+  enfant2.body.velocity.x = 0;
+  enfant3.body.acceleration.x = 0;
+  enfant3.body.velocity.x = 0;
+  //black tween
+  black = game.add.image(0, 0, 'black');
+  black.alpha = 1;
+  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween.onComplete.add(function(){
+    timer.resume();
+    pauseVar = 0;
+    enfant1.body.acceleration.y = 2000;
+    enfant1.body.maxVelocity.y =  speed();
+    enfant2.body.acceleration.x = 2000;
+    enfant2.body.maxVelocity.x = -1 * speed();
+    enfant3.body.acceleration.x = 2000;
+    enfant3.body.maxVelocity.x = speed();
+  }, this);
 }

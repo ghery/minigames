@@ -56,7 +56,7 @@ var game4state = {
       print_timer(time_text);
 
       //mouvement rond
-      if (game.input.onUp)
+      if (game.input.onUp && pauseVar == 0)
       {
           //  1000 is the speed it will move towards the mouse
           game.physics.arcade.moveToXY(round, game.input.x - round.width/2, game.input.y - round.height/2, 1000, 0);
@@ -79,9 +79,10 @@ var game4state = {
       // condition de victoire
     if ((((round.x + round.width/2) >= (centre.x - 30 + centre.width/2)) & ((round.x + round.width/2) <= (centre.x + 30 + centre.width/2)))
     & (((round.y + round.height/2) >= (centre.y - 30 + centre.height/2)) & ((round.y + round.height/2) <= (centre.y + 30 + centre.height/2)))){
-
+      if (pauseVar == 0){
         round.body.velocity.setTo(0, 0);
         victory("Waouh...Plus rapide que la lumière !", 4);
+      }
     }
 
     if(TIME_LIMIT - timer.seconds <= 0){

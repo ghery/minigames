@@ -57,7 +57,7 @@ var winstate = {
         tmp = 100 + (game.rnd.integer() % 122);
         SCORE += 100 + tmp;
 
-        this.request();
+        // this.request();
 
         scoreAdd = game.add.text(0, 0, "+"+tmp);
         scoreAdd.font = 'Montserrat';

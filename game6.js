@@ -8,6 +8,7 @@ var game6state = {
     },
 
     create: function() {
+      pauseVar = 0;
 
       //PAUSE
       pauseButton = game.add.image(0, 0, 'pause');
@@ -43,7 +44,9 @@ var game6state = {
         papier.name = 'papier' + i;
         papier.inputEnabled = true;
         papier.input.enableDrag(false, true);
-        papier.events.onDragStop.add(onDragStop, this);
+        if (pauseVar == 0) {
+          papier.events.onDragStop.add(onDragStop, this);
+        }
 
         papiers.add(papier);
         i--;
@@ -59,6 +62,8 @@ var game6state = {
     instructions6 = game.add.image(0, 0, 'instructions6');
     instructions6.x = WIDTH / 2 - instructions6.width / 2;
     instructions6.y = HEIGHT / 3;
+
+    launchgame6();
     },
 
     update: function() {
@@ -76,7 +81,7 @@ var game6state = {
 };
 
 function onDragStop(papier, pointer) {
-  if (checkOverlap(ecran, papier))
+  if (checkOverlap(ecran, papier) && pauseVar == 0)
     {
       papier.destroy();
       score += 1;
@@ -91,4 +96,17 @@ function checkOverlap(spriteA, spriteB) {
 
     return Phaser.Rectangle.intersects(boundsA, boundsB);
 
+}
+
+function launchgame6() {
+  timer.pause();
+  pauseVar = 1;
+  //black tween
+  black = game.add.image(0, 0, 'black');
+  black.alpha = 1;
+  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween.onComplete.add(function(){
+    timer.resume();
+    pauseVar = 0;
+  }, this);
 }

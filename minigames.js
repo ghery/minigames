@@ -51,6 +51,7 @@ game.state.add('game8state', game8state);
           game.load.image('bus', 'assets/bus.png');
           game.load.image('obstacle', 'assets/g3_obstacle.png');
           game.load.image('g3_route', 'assets/g3_route.png');
+          game.load.image('instructions3', 'assets/Instructions3.png');
 
           //GAME 4
           game.load.image('round', 'assets/round.png');
@@ -74,6 +75,7 @@ game.state.add('game8state', game8state);
           game.load.image('bed', 'assets/bed.png');
           game.load.image('closet', 'assets/closet.png');
           game.load.image('desktop', 'assets/desktop.png');
+          game.load.image('instructions7', 'assets/Instructions7.png');
 
           //GAME 8
           game.load.image('enfant1', 'assets/Cochon.png');
