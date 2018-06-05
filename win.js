@@ -1,6 +1,9 @@
 function victory(str, nbGame)
 {
-  timer.pause();
+  if(timer)
+  {
+    timer.pause();
+  }
   pauseVar = 1;
   //black tween
   black = game.add.image(0, 0, 'black');
@@ -16,7 +19,10 @@ function victory(str, nbGame)
 
 function defeat(str)
 {
-  timer.pause();
+  if(timer)
+  {
+    timer.pause();
+  }
   pauseVar = 1;
   //black tween
   black = game.add.image(0, 0, 'black');
@@ -51,7 +57,7 @@ var winstate = {
         tmp = 100 + (game.rnd.integer() % 122);
         SCORE += 100 + tmp;
 
-        this.request();
+        // this.request();
 
         scoreAdd = game.add.text(0, 0, "+"+tmp);
         scoreAdd.font = 'Montserrat';

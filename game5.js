@@ -6,6 +6,8 @@ var game5state = {
     },
 
     create: function() {
+      pauseVar = 0;
+
       //PAUSE
       pauseButton = game.add.image(0, 0, 'pause');
       pauseButton.scale.setTo(0.10, 0.10);
@@ -72,14 +74,18 @@ var game5state = {
         instructions5 = game.add.image(0, 0, 'instructions5');
         instructions5.x = WIDTH / 2 - instructions5.width / 2;
         instructions5.y = HEIGHT / 3;
+
+        launchgame5();
     },
 
     update: function() {
         print_timer(time_text);
-        fond.tilePosition.x -= 1;
+        if (pauseVar == 0) {
+          fond.tilePosition.x -= 1;
+        }
         direction = 0;
         // console.log(direction);
-        if (carton.angle != 90 && carton.angle != -90)
+        if (carton.angle != 90 && carton.angle != -90 && pauseVar == 0)
         {
             if (upKey.isDown)
                 SWIPE_Y = -1;
@@ -144,4 +150,17 @@ var game5state = {
             return (0);
         return (1);
     }
+}
+
+function launchgame5() {
+  timer.pause();
+  pauseVar = 1;
+  //black tween
+  black = game.add.image(0, 0, 'black');
+  black.alpha = 1;
+  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween.onComplete.add(function(){
+    timer.resume();
+    pauseVar = 0;
+  }, this);
 }

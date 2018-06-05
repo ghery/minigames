@@ -19,7 +19,7 @@
 <script src="jquery-3.3.1.min.js"></script>
 
 <?php
-include ("leaderboard/connect.php");
+// include ("leaderboard/connect.php");
     if ($_GET['nav'] == "leaderboard")
         include("leaderboard/index2.php");
     else if ($_GET['nav'] == "name")

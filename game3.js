@@ -12,21 +12,7 @@ var game3state = {
     },
 
     create: function() {
-      //PAUSE
-      pauseButton = game.add.image(0, 0, 'pause');
-      pauseButton.scale.setTo(0.10, 0.10);
-      pauseButton.x = (WIDTH - pauseButton.width);
-      pauseButton.y = 0;
-      game.input.addPointer();
-      game.input.onUp.add(function ()
-      {
-        if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {
-          Pause(1);
-        }
-        else if (game.input.x > (WIDTH - (pauseButton.width + 5)) && game.input.y < (pauseButton.height + 5) && pauseVar == 1) {
-         Pause(0);
-        }
-      }, game);
+      pauseVar = 0;
 
         cursors = game.input.keyboard.createCursorKeys();
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -43,6 +29,7 @@ var game3state = {
         character.body.onCollide.add(this.defeat, game);
 
         // OBSTACLE
+        if (pauseVar == 0){
 
         groupObstacle = game.add.group();
         this.create_obstacle();
@@ -71,6 +58,32 @@ var game3state = {
                 g3_move_y = game.input.y;
             g3_b = true;
         }, game);
+
+      }
+
+      // INSTRUCTIONS
+
+      instructions3 = game.add.image(0, 0, 'instructions3');
+      instructions3.x = WIDTH / 2 - instructions3.width / 2;
+      instructions3.y = HEIGHT / 3;
+
+      //PAUSE
+      pauseButton = game.add.image(0, 0, 'pause');
+      pauseButton.scale.setTo(0.10, 0.10);
+      pauseButton.x = (WIDTH - pauseButton.width);
+      pauseButton.y = 0;
+      game.input.addPointer();
+      game.input.onUp.add(function ()
+      {
+        if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {
+          Pause(1);
+        }
+        else if (game.input.x > (WIDTH - (pauseButton.width + 5)) && game.input.y < (pauseButton.height + 5) && pauseVar == 1) {
+         Pause(0);
+        }
+      }, game);
+
+      launchgame3();
     },
     create_obstacle: function(){
         obstacle = groupObstacle.create(WIDTH + 200, 0, 'obstacle');
@@ -89,9 +102,20 @@ var game3state = {
             this.victory();
     },
     victory: function(){
-        victory("Bravo tu as évité les obstacles !", 3);
+        victory("Bon… à l’année prochaine ?", 3);
     },
     defeat: function(){
-        defeat("BADABOUMBOUMBOUM !");
+        defeat("Super tu peux aller te baigner !");
     }
 };
+
+function launchgame3() {
+  pauseVar = 1;
+  //black tween
+  black = game.add.image(0, 0, 'black');
+  black.alpha = 1;
+  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween.onComplete.add(function(){
+    pauseVar = 0;
+  }, this);
+}

@@ -17,6 +17,8 @@ var NOM = "Cochonours";
 var character;
 var timer;
 
+var pauseVar;
+
 var lose_message; //message lose state
 var win_message; // message win state
 // var time_text; // in timer.js temps restant

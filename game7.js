@@ -14,6 +14,8 @@ var game7state = {
     },
 
     create: function() {
+      pauseVar = 0;
+
       //PAUSE
       pauseButton = game.add.image(0, 0, 'pause');
       pauseButton.scale.setTo(0.10, 0.10);
@@ -42,7 +44,6 @@ var game7state = {
       room.y = HEIGHT / 2 - room.height / 2;
 
       startNbIcon = 3;
-
 
 
       iconDesktop = game.add.sprite(0, 0, 'desktop');
@@ -87,7 +88,14 @@ var game7state = {
       timer = game.time.create(false);
       timer.start();
 
+      // instructions7
+
+      instructions7 = game.add.image(0, 0, 'instructions7');
+      instructions7.x = WIDTH / 2 - instructions7.width / 2;
+      instructions7.y = HEIGHT / 5;
+
       time_text = game.add.text(0, 0, "", time_text_style);
+      launchgame7();
     },
 
     update: function() {
@@ -100,9 +108,9 @@ var game7state = {
           if (mUp > 0)
           {
             if (this.objectPosOk(object) == 0)
-                defeat();
+                defeat("Tu feras mieux la prochaine fois...");
             else if (arrayObject.length == startNbIcon)
-                victory("", 7);
+                victory("Bien joué tu es un as du puzzle !", 7);
             //console.log(this.isIntersection(object, room));
             // verif object intersection
             mMove = 0;
@@ -194,3 +202,16 @@ var game7state = {
           return (1);
   }
 };
+
+function launchgame7() {
+  timer.pause();
+  pauseVar = 1;
+  //black tween
+  black = game.add.image(0, 0, 'black');
+  black.alpha = 1;
+  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween.onComplete.add(function(){
+    timer.resume();
+    pauseVar = 0;
+  }, this);
+}
