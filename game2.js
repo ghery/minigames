@@ -1,6 +1,7 @@
 var nbBillet = 22;
 var score = 0;
 var Billetvelocity = 800;
+var pauseVar;
 
 var game2state = {
 
@@ -8,6 +9,7 @@ var game2state = {
     },
 
     create: function() {
+      pauseVar = 0;
 
       //PAUSE
       pauseButton = game.add.image(0, 0, 'pause');
@@ -36,6 +38,7 @@ var game2state = {
      game.physics.enable(portefeuille, Phaser.Physics.ARCADE);
      game.input.addPointer();
      groupBillet = game.add.group();
+     if (pauseVar == 0){
      game.time.events.repeat(Phaser.Timer.SECOND, nbBillet, function(){
        var billetX = randomX();
        salaire.x = billetX;
@@ -46,6 +49,7 @@ var game2state = {
        Billet.body.acceleration.y = 600;
        Billet.body.maxVelocity.y = Billetvelocity;
      }, game);
+    }
      score = 0;
 
      // instructions2
@@ -53,11 +57,12 @@ var game2state = {
      instructions2 = game.add.image(0, 0, 'instructions2');
      instructions2.x = WIDTH / 2 - instructions2.width / 2;
      instructions2.y = HEIGHT / 3;
+     launchgame2();
     },
 
     update: function() {
         game.physics.arcade.overlap(portefeuille, groupBillet, collisionHandeler, null, game);
-    if (game.input.onUp)
+    if (game.input.onUp && pauseVar == 0)
     {
         //  400 is the speed it will move towards the mouse
         game.physics.arcade.moveToPointer(portefeuille, 1000);
@@ -98,6 +103,19 @@ function randomX() {
     x = game.rnd.integer() % WIDTH - 100;
   }
   return(x);
+}
+
+function launchgame2() {
+  timer.pause();
+  pauseVar = 1;
+  //black tween
+  black = game.add.image(0, 0, 'black');
+  black.alpha = 1;
+  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween.onComplete.add(function(){
+    timer.resume();
+    pauseVar = 0;
+  }, this);
 }
 
 // function createBillet(){

@@ -1,15 +1,31 @@
 function victory(str, nbGame)
 {
+  timer.pause();
+  pauseVar = 1;
+  //black tween
+  black = game.add.image(0, 0, 'black');
+  black.alpha = 0;
+  tween = game.add.tween(black).to( { alpha: 1 }, 2000, "Linear", true);
+  tween.onComplete.add(function(){
     win_message = str;
-    game.state.start('winstate');
     if (nbGame - 1 >= 0)
         arrayCardsWin[nbGame - 1] += 1;
+    game.state.start('winstate');
+  }, this);
 }
 
 function defeat(str)
 {
+  timer.pause();
+  pauseVar = 1;
+  //black tween
+  black = game.add.image(0, 0, 'black');
+  black.alpha = 0;
+  tween = game.add.tween(black).to( { alpha: 1 }, 2000, "Linear", true);
+  tween.onComplete.add(function(){
     lose_message = str;
     game.state.start('losestate');
+  }, this);
 }
 
 var winstate = {

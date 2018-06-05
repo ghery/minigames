@@ -1,9 +1,12 @@
+var pauseVar;
+
 var game4state = {
 
     preload: function() {
     },
 
     create: function() {
+      pauseVar = 0;
 
       centre = game.add.sprite(0, 0, 'centre');
       centre.scale.setTo(0.5, 0.5);
@@ -44,6 +47,8 @@ var game4state = {
       instructions4 = game.add.image(0, 0, 'instructions4');
       instructions4.x = WIDTH / 2 - instructions4.width / 2;
       instructions4.y = HEIGHT / 3;
+
+      launchgame3();
     },
 
     update: function() {
@@ -84,3 +89,17 @@ var game4state = {
     }
     }
 };
+
+
+function launchgame3() {
+  timer.pause();
+  pauseVar = 1;
+  //black tween
+  black = game.add.image(0, 0, 'black');
+  black.alpha = 1;
+  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween.onComplete.add(function(){
+    timer.resume();
+    pauseVar = 0;
+  }, this);
+}
