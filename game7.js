@@ -11,13 +11,24 @@ var game7state = {
     mMove: 0,
     mUp: 0,
     preload: function() {
-      game.load.image('room', 'assets/fondRoom.png');
-      game.load.image('bed', 'assets/bed.png');
-      game.load.image('closet', 'assets/closet.png');
-      game.load.image('desktop', 'assets/desktop.png');
     },
 
     create: function() {
+      //PAUSE
+      pauseButton = game.add.image(0, 0, 'pause');
+      pauseButton.scale.setTo(0.10, 0.10);
+      pauseButton.x = (WIDTH - pauseButton.width);
+      pauseButton.y = 0;
+      game.input.addPointer();
+      game.input.onUp.add(function ()
+      {
+        if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {
+          Pause(1);
+        }
+        else if (game.input.x > (WIDTH - (pauseButton.width + 5)) && game.input.y < (pauseButton.height + 5) && pauseVar == 1) {
+         Pause(0);
+        }
+      }, game);
 
       var rec_width = 600;
       var rec_height = 450;

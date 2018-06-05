@@ -8,21 +8,34 @@ var b_down = false;
 var game3state = {
     preload: function() {
       //game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-      game.load.image('cochonours', 'assets/bus.png');
-      game.load.image('obstacle', 'assets/g3_obstacle.png');
-      game.load.image('route', 'assets/g3_route.png');
       //preload_font();
     },
 
     create: function() {
+      //PAUSE
+      pauseButton = game.add.image(0, 0, 'pause');
+      pauseButton.scale.setTo(0.10, 0.10);
+      pauseButton.x = (WIDTH - pauseButton.width);
+      pauseButton.y = 0;
+      game.input.addPointer();
+      game.input.onUp.add(function ()
+      {
+        if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {
+          Pause(1);
+        }
+        else if (game.input.x > (WIDTH - (pauseButton.width + 5)) && game.input.y < (pauseButton.height + 5) && pauseVar == 1) {
+         Pause(0);
+        }
+      }, game);
+
         cursors = game.input.keyboard.createCursorKeys();
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
-        route = game.add.tileSprite(0, 0, WIDTH, HEIGHT, 'route');
+        route = game.add.tileSprite(0, 0, WIDTH, HEIGHT, 'g3_route');
 
         // CHARACTER
 
-        character =  game.add.sprite(0, 0, 'cochonours');
+        character =  game.add.sprite(0, 0, 'bus');
         game.physics.enable(character);
         character.body.collideWorldBounds = true;
         //character.scale.setTo(0.10, 0.10)

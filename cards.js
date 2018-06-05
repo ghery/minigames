@@ -1,16 +1,15 @@
 var cardstate = {
 
     preload: function() {
-      game.load.image('blackCarte', 'assets/blackCarte.png');
-      game.load.image('card', 'assets/desktop.png');
-      game.load.image('Carte1', 'assets/Carte1.png');
+      //game.load.image('blackCarte', 'assets/blackCarte.png');
+      /*game.load.image('Carte1', 'assets/Carte1.png');
       game.load.image('Carte2', 'assets/Carte2.png');
       game.load.image('Carte3', 'assets/Carte3.png');
       game.load.image('Carte4', 'assets/Carte4.png');
       game.load.image('Carte5', 'assets/Carte5.png');
       game.load.image('Carte6', 'assets/Carte6.png');
       game.load.image('Carte7', 'assets/Carte7.png');
-      game.load.image('Carte8', 'assets/Carte8.png');
+      game.load.image('Carte8', 'assets/Carte8.png');*/
       //preload_font();
     },
 

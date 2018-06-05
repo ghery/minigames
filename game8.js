@@ -1,16 +1,28 @@
-var speed_max = 300;
-var speed_min = 100;
+var speed_max = 200;
+var speed_min = 50;
 
 var game8state = {
 
     preload: function() {
-      game.load.image('enfant1', 'assets/Cochon.png');
-      game.load.image('enfant2', 'assets/Perroquet.png');
-      game.load.image('enfant3', 'assets/Perroquet_inv.png');
-      game.load.image('instructions', 'assets/Instructions8.png');
     },
 
     create: function() {
+      //PAUSE
+      pauseButton = game.add.image(0, 0, 'pause');
+      pauseButton.scale.setTo(0.10, 0.10);
+      pauseButton.x = (WIDTH - pauseButton.width);
+      pauseButton.y = 0;
+      game.input.addPointer();
+      game.input.onUp.add(function ()
+      {
+        if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {
+          Pause(1);
+        }
+        else if (game.input.x > (WIDTH - (pauseButton.width + 5)) && game.input.y < (pauseButton.height + 5) && pauseVar == 1) {
+         Pause(0);
+        }
+      }, game);
+
       enfant1 = game.add.sprite(0, 0, 'enfant1');
       game.physics.enable(enfant1);
       enfant1.scale.setTo(0.15, 0.15);
@@ -46,11 +58,11 @@ var game8state = {
 
       time_text = game.add.text(0, 0, "", time_text_style);
 
-      // INSTRUCTIONS
+      // instructions8
 
-      instructions = game.add.image(0, 0, 'instructions');
-      instructions.x = WIDTH / 2 - instructions.width / 2;
-      instructions.y = HEIGHT / 5;
+      instructions8 = game.add.image(0, 0, 'instructions8');
+      instructions8.x = WIDTH / 2 - instructions8.width / 2;
+      instructions8.y = HEIGHT / 5;
     },
 
     update: function() {

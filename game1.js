@@ -1,12 +1,9 @@
 var Speed = -100;
+var pauseVar = 0;
 
 var gamestate = {
 
     preload: function() {
-      game.load.image('cochonours', 'assets/Cochonours_vector.png');
-      game.load.image('instructions', 'assets/Instructions1.png');
-      game.load.image('route', 'assets/Route_jeu1.png');
-      game.load.image('caf', 'assets/CAF.png');
       //preload_font();
     },
 
@@ -16,11 +13,18 @@ var gamestate = {
 
      //create all button use
 
+     //PAUSE
+     pauseButton = game.add.image(0, 0, 'pause');
+     pauseButton.scale.setTo(0.10, 0.10);
+     pauseButton.x = (WIDTH - pauseButton.width);
+     pauseButton.y = 0;
+
      // INSTRUCTIONS
 
      instructions = game.add.image(0, 0, 'instructions');
      instructions.x = WIDTH / 2 - instructions.width / 2;
      instructions.y = HEIGHT / 3;
+
      // ROUTE
 
      tmp = game.add.sprite(0, 0, 'route'); // utiliser juste pour connaitre la bonne valeur pour faire apparaitre la tilesprite
@@ -49,7 +53,15 @@ var gamestate = {
      game.input.addPointer();
      game.input.onUp.add(function ()
      {
-         character.x += 30;
+       if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {
+         Pause(1);
+       }
+       else if (pauseVar == 0) {
+        character.x += 30;
+       }
+       else if (game.input.x > (WIDTH - (pauseButton.width + 5)) && game.input.y < (pauseButton.height + 5) && pauseVar == 1) {
+        Pause(0);
+       }
      }, game);
     },
 
