@@ -83,6 +83,7 @@ var game3state = {
     }
     ,
     update: function() {
+        route.tilePosition.x -= 2;
         game.physics.arcade.collide(character, groupObstacle);
         if (groupObstacle.right < 0)
             this.victory();
