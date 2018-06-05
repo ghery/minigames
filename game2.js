@@ -62,7 +62,7 @@ var game2state = {
 
     update: function() {
         game.physics.arcade.overlap(portefeuille, groupBillet, collisionHandeler, null, game);
-    if (game.input.onUp && pauseVar == 0)
+    if (game.input.onUp)
     {
         //  400 is the speed it will move towards the mouse
         game.physics.arcade.moveToPointer(portefeuille, 1000);

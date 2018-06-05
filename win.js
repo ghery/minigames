@@ -1,6 +1,9 @@
 function victory(str, nbGame)
 {
-  timer.pause();
+  if(timer)
+  {
+    timer.pause();
+  }
   pauseVar = 1;
   //black tween
   black = game.add.image(0, 0, 'black');
@@ -16,7 +19,10 @@ function victory(str, nbGame)
 
 function defeat(str)
 {
-  timer.pause();
+  if(timer)
+  {
+    timer.pause();
+  }
   pauseVar = 1;
   //black tween
   black = game.add.image(0, 0, 'black');

@@ -48,7 +48,7 @@ var game4state = {
       instructions4.x = WIDTH / 2 - instructions4.width / 2;
       instructions4.y = HEIGHT / 3;
 
-      launchgame3();
+      launchgame4();
     },
 
     update: function() {
@@ -91,7 +91,7 @@ var game4state = {
 };
 
 
-function launchgame3() {
+function launchgame4() {
   timer.pause();
   pauseVar = 1;
   //black tween

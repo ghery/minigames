@@ -1,5 +1,4 @@
 var Speed = -100;
-var pauseVar = 0;
 
 var gamestate = {
 
@@ -8,6 +7,7 @@ var gamestate = {
     },
 
     create: function() {
+     pauseVar = 0;
      time_text = game.add.text(0, 0, "", time_text_style);
      game.physics.startSystem(Phaser.Physics.ARCADE);
 
