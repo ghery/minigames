@@ -90,7 +90,7 @@ function victory1(){
         }
         else if (timer.seconds >= TIME_LIMIT && character.x + character.height > 0)
         {
-            victory("Bien joué !\nMais tu aurais peut être dû prendre un taxi…", 1);
+            victory("Bien joué !", 1);
             return (1);
         }
     }
