@@ -2,11 +2,7 @@ var game5state = {
 
     direction : 0,
     preload: function() {
-      game.load.image('cochonours', 'assets/Cochonours_vector.png');
-      game.load.image('carton', 'assets/carton.png');
-      game.load.image('table', 'assets/table.png');
-      game.load.image('fond', 'assets/fondCouloir.png');
-      game.load.image('instructions5', 'assets/instructions5.png');
+
     },
 
     create: function() {
@@ -135,7 +131,7 @@ var game5state = {
         {
             game.world.rotation = 0;
             //game.world.setBounds(0, 0, WIDTH, HEIGHT);
-            victory("Bravo t’as fait un carton !");
+            victory("Bravo t’as fait un carton !", 5);
         }
         else if (!this.cartonOnTable()){
             game.world.rotation = 0;

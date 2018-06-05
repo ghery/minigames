@@ -3,9 +3,6 @@ var pauseVar;
 var game4state = {
 
     preload: function() {
-      game.load.image('round', 'assets/round.png');
-      game.load.image('centre', 'assets/centre_social.png');
-      game.load.image('instructions4', 'assets/instructions4.png');
     },
 
     create: function() {
@@ -84,7 +81,7 @@ var game4state = {
     & (((round.y + round.height/2) >= (centre.y - 30 + centre.height/2)) & ((round.y + round.height/2) <= (centre.y + 30 + centre.height/2)))){
 
         round.body.velocity.setTo(0, 0);
-        victory("Waouh...Plus rapide que la lumière !");
+        victory("Waouh...Plus rapide que la lumière !", 4);
     }
 
     if(TIME_LIMIT - timer.seconds <= 0){

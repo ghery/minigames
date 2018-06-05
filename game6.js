@@ -5,9 +5,6 @@ var score = 0;
 var game6state = {
 
     preload: function() {
-      game.load.image('papier', 'assets/Papier_2.png');
-      game.load.image('ecran', 'assets/Ecran.png');
-      game.load.image('instructions6', 'assets/instructions6.png');
     },
 
     create: function() {
@@ -69,7 +66,7 @@ var game6state = {
       print_timer(time_text);
 
       if(score == nb_papier){
-        victory("Plus rapide qu’un scanner super puissant !");
+        victory("Plus rapide qu’un scanner super puissant !", 6);
       }
 
       if(TIME_LIMIT - timer.seconds <= 0){

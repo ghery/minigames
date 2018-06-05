@@ -12,12 +12,14 @@ game = new Phaser.Game(WIDTH, HEIGHT, Phaser.AUTO, '', { preload: preload, creat
 
 game.state.add('winstate', winstate);
 game.state.add('losestate', losestate);
+game.state.add('cardstate', cardstate);
 game.state.add('gamestate', gamestate);
 game.state.add('game2state', game2state);
 game.state.add('game3state', game3state);
 game.state.add('game4state', game4state);
 game.state.add('game5state', game5state);
 game.state.add('game6state', game6state);
+game.state.add('game7state', game7state);
 game.state.add('game8state', game8state);
 
 
@@ -46,7 +48,9 @@ game.state.add('game8state', game8state);
           game.load.image('salaire', 'assets/salaire.png');
 
           //GAME 3
-          game.load.image('obstacle', 'assets/koala.png');
+          game.load.image('bus', 'assets/bus.png');
+          game.load.image('obstacle', 'assets/g3_obstacle.png');
+          game.load.image('g3_route', 'assets/g3_route.png');
 
           //GAME 4
           game.load.image('round', 'assets/round.png');
@@ -54,6 +58,7 @@ game.state.add('game8state', game8state);
           game.load.image('instructions4', 'assets/Instructions4.png');
 
           //GAME 5
+          //game.load.image('cochonours', 'assets/Cochonours_vector.png');
           game.load.image('carton', 'assets/carton.png');
           game.load.image('table', 'assets/table.png');
           game.load.image('fond', 'assets/fondCouloir.png');
@@ -98,7 +103,8 @@ game.state.add('game8state', game8state);
           game.load.image('enPause', 'assets/enPause.png');
 
           //CARDS
-          game.load.image('card', 'assets/desktop.png');
+          //game.load.image('card', 'assets/desktop.png');
+          game.load.image('blackCarte', 'assets/blackCarte.png');
         }
 
         function create(){

@@ -7,15 +7,15 @@ function initArrayLastLevel()
 
     while (i < LEVELNB)
     {
-        if (i == 2)
+        /*if (i == 2)
             arrayLastLevel[i] = 3;
         else if (i == 6)
             arrayLastLevel[i] = 7;
-        else
+        else*/
             arrayLastLevel[i] = 0;
         i++;
     }
-    console.log(arrayLastLevel);
+    //console.log(arrayLastLevel);
 }
 initArrayLastLevel();
 
@@ -117,6 +117,6 @@ function levelSelector(){
 //     levelSelector();
 //   }
 //   console.log("random:" + random);
-  game.state.start('game2state');
-  LASTLEVEL = 2;
+  game.state.start('game3state');
+  LASTLEVEL = 3;
 }

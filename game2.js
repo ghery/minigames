@@ -6,10 +6,6 @@ var pauseVar;
 var game2state = {
 
     preload: function() {
-      game.load.image('portefeuille', 'assets/portefeuille.png');
-      game.load.image('Billet', 'assets/Billets.png');
-      game.load.image('instructions2', 'assets/instructions2.png');
-      game.load.image('salaire', 'assets/salaire.png');
     },
 
     create: function() {
@@ -97,7 +93,7 @@ function collisionHandeler(obj1, obj2){
   obj2.destroy();
   score += 1;
   if (score == 20){
-    victory("Ouf tu vas pouvoir remplir ton frigo ce mois-ci ...");
+    victory("Ouf tu vas pouvoir remplir ton frigo ce mois-ci ...", 2);
   }
 }
 

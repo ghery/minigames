@@ -1,4 +1,4 @@
-function victory(str)
+function victory(str, nbGame)
 {
   timer.pause();
   pauseVar = 1;
@@ -8,6 +8,8 @@ function victory(str)
   tween = game.add.tween(black).to( { alpha: 1 }, 2000, "Linear", true);
   tween.onComplete.add(function(){
     win_message = str;
+    if (nbGame - 1 >= 0)
+        arrayCardsWin[nbGame - 1] += 1;
     game.state.start('winstate');
   }, this);
 }
@@ -48,6 +50,8 @@ var winstate = {
         i = 0;
         tmp = 100 + (game.rnd.integer() % 122);
         SCORE += 100 + tmp;
+
+        this.request();
 
         scoreAdd = game.add.text(0, 0, "+"+tmp);
         scoreAdd.font = 'Montserrat';
@@ -134,6 +138,19 @@ var winstate = {
         {
             scoreAdd.destroy();
         }
+    },
+    request: function (){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("POST", "leaderboard/request.php", true);
+        console.log("welcome");
+        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xmlhttp.send("nom="+NOM+"&score="+SCORE);
+        xmlhttp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200)
+        {
+            console.log(this.responseText);
+        }
+        }
     }
 };
 
@@ -202,6 +219,7 @@ var losestate = {
           }, game);
         }
         else if(LIFE == 0){
+          SCORE = 0;
           text = game.add.text(0, 0, "GAME OVER!");
           text.font = 'Montserrat';
           text.addColor("#fff", 0);
