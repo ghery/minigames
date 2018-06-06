@@ -6,6 +6,7 @@ var b_up = false;
 var b_down = false;
 
 var game3state = {
+    i_obstacle : 0,
     preload: function() {
       //game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
       //preload_font();
@@ -31,6 +32,7 @@ var game3state = {
         // OBSTACLE
         if (pauseVar == 0){
 
+        i_obstacle = 1;
         groupObstacle = game.add.group();
         this.create_obstacle();
         game.time.events.repeat(Phaser.Timer.SECOND * 1, 15, this.create_obstacle, game);
@@ -86,7 +88,11 @@ var game3state = {
       launchgame3();
     },
     create_obstacle: function(){
-        obstacle = groupObstacle.create(WIDTH + 200, 0, 'obstacle');
+        if (i_obstacle > 3)
+            i_obstacle = 1;
+        tmp = 'g3_obstacle'+i_obstacle;
+        obstacle = groupObstacle.create(WIDTH + 200, 0, tmp);
+        i_obstacle++;
         //obstacle.scale.setTo(0.3, 0.3);
         obstacle.y = Math.floor(Math.random() * parseInt(HEIGHT / character.height)) * character.height;
         game.physics.enable(obstacle);
@@ -102,10 +108,10 @@ var game3state = {
             this.victory();
     },
     victory: function(){
-        victory("Bon… à l’année prochaine ?", 3);
+        victory("Super tu peux aller te baigner !", 3);
     },
     defeat: function(){
-        defeat("Super tu peux aller te baigner !");
+        defeat("Bon… à l’année prochaine ?");
     }
 };
 

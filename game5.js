@@ -6,23 +6,6 @@ var game5state = {
     },
 
     create: function() {
-      pauseVar = 0;
-
-      //PAUSE
-      pauseButton = game.add.image(0, 0, 'pause');
-      pauseButton.scale.setTo(0.10, 0.10);
-      pauseButton.x = (WIDTH - pauseButton.width);
-      pauseButton.y = 0;
-      game.input.addPointer();
-      game.input.onUp.add(function ()
-      {
-        if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {
-          Pause(1);
-        }
-        else if (game.input.x > (WIDTH - (pauseButton.width + 5)) && game.input.y < (pauseButton.height + 5) && pauseVar == 1) {
-         Pause(0);
-        }
-      }, game);
 
         time_text = game.add.text(0, 0, "", time_text_style);
 
@@ -35,7 +18,7 @@ var game5state = {
         // fond
 
         tmp = game.add.sprite(0, 0, 'fond'); // utiliser juste pour connaitre la bonne valeur pour faire apparaitre la tilesprite
-        //tmp.scale.setTo(0.4, 0.4);
+        tmp.scale.setTo(0.92, 0.92);
         fond = game.add.tileSprite(0 - WIDTH / 2, 0, WIDTH * 2, tmp.height, 'fond');
         //fond.tileScale.y = 0.4;
         //fond.tileScale.x = 0.4;
@@ -49,7 +32,7 @@ var game5state = {
         character =  game.add.sprite(0, 0, 'cochonours');
         character.scale.setTo(0.15, 0.15);
         character.x = WIDTH / 2;
-        character.y = HEIGHT / 2 - character.height / 2;
+        character.y = HEIGHT / 2 - character.height / 2 + 20;
 
         // table
 
@@ -74,6 +57,24 @@ var game5state = {
         instructions5 = game.add.image(0, 0, 'instructions5');
         instructions5.x = WIDTH / 2 - instructions5.width / 2;
         instructions5.y = HEIGHT / 3;
+
+        pauseVar = 0;
+
+        //PAUSE
+        pauseButton = game.add.image(0, 0, 'pause');
+        pauseButton.scale.setTo(0.10, 0.10);
+        pauseButton.x = (WIDTH - pauseButton.width);
+        pauseButton.y = 0;
+        game.input.addPointer();
+        game.input.onUp.add(function ()
+        {
+          if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {
+            Pause(1);
+          }
+          else if (game.input.x > (WIDTH - (pauseButton.width + 5)) && game.input.y < (pauseButton.height + 5) && pauseVar == 1) {
+           Pause(0);
+          }
+        }, game);
 
         launchgame5();
     },
