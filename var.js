@@ -9,7 +9,7 @@ var TIME_LIMIT = 10; // limite temps des jeux de facon generale
 var LEVELNB = 8;
 var LASTLEVEL = 0;
 var LASTLASTLEVEL = 0;
-var LIFE = 3;
+var LIFE;
 var SCORE = 0;
 
 var NOM = "Cochonours";
