@@ -58,7 +58,7 @@ var game5state = {
 
         instructions5 = game.add.image(0, 0, 'instructions5');
         instructions5.x = WIDTH / 2 - instructions5.width / 2;
-        instructions5.y = HEIGHT / 3;
+        instructions5.y =HEIGHT / 8;
 
         pauseVar = 0;
 
@@ -161,7 +161,7 @@ function launchgame5() {
   //black tween
   black = game.add.image(0, 0, 'black');
   black.alpha = 1;
-  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween = game.add.tween(black).to( { alpha: 0 }, 5000, "Linear", true);
   tween.onComplete.add(function(){
     timer.resume();
     pauseVar = 0;

@@ -23,7 +23,7 @@ var gamestate = {
 
      instructions = game.add.image(0, 0, 'instructions');
      instructions.x = WIDTH / 2 - instructions.width / 2;
-     instructions.y = HEIGHT / 3;
+     instructions.y = HEIGHT / 8;
 
      // ROUTE
 
@@ -50,7 +50,7 @@ var gamestate = {
      timer = game.time.create(false);
      timer.start(); // quand timer fini, use destroy
 
-     
+
      game.input.onUp.add(function ()
      {
        if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {
@@ -104,7 +104,7 @@ function launchgame1() {
   //black tween
   black = game.add.image(0, 0, 'black');
   black.alpha = 1;
-  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween = game.add.tween(black).to( { alpha: 0 }, 5000, "Linear", true);
   tween.onComplete.add(function(){
     timer.resume();
     character.body.acceleration.x = Speed;

@@ -64,7 +64,7 @@ var game8state = {
 
       instructions8 = game.add.image(0, 0, 'instructions8');
       instructions8.x = WIDTH / 2 - instructions8.width / 2;
-      instructions8.y = HEIGHT / 5;
+      instructions8.y = HEIGHT / 8;
 
       launchgame8();
     },
@@ -104,7 +104,7 @@ function launchgame8() {
   //black tween
   black = game.add.image(0, 0, 'black');
   black.alpha = 1;
-  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween = game.add.tween(black).to( { alpha: 0 }, 5000, "Linear", true);
   tween.onComplete.add(function(){
     timer.resume();
     pauseVar = 0;

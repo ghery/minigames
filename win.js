@@ -77,6 +77,8 @@ var winstate = {
         scoreText.x = WIDTH / 2 - scoreText.width / 2;
         scoreText.y = (scoreAdd.y - scoreText.height) - 20;
 
+        timer = game.time.create(false);
+        timer.start();
     },
 
     update: function() {
@@ -90,6 +92,14 @@ var winstate = {
         {
             scoreAdd.destroy();
             createCard();
+        }
+
+        if (timer.seconds > 8) {
+          game.input.addPointer();
+          game.input.onUp.add(function ()
+          {
+            levelSelector();
+          }, game);
         }
     },
     request: function (){
@@ -158,12 +168,6 @@ function createCard() {
     card.x = game.world.centerX - card.width/2;
     card.y = game.world.centerY - card.height/2.5;
   }
-
-  game.input.addPointer();
-  game.input.onUp.add(function ()
-  {
-    levelSelector();
-  }, game);
 }
 
 var losestate = {

@@ -66,7 +66,7 @@ var game3state = {
 
       instructions3 = game.add.image(0, 0, 'instructions3');
       instructions3.x = WIDTH / 2 - instructions3.width / 2;
-      instructions3.y = HEIGHT / 3;
+      instructions3.y =HEIGHT / 8;
 
       //PAUSE
       pauseButton = game.add.image(0, 0, 'pause');
@@ -118,7 +118,7 @@ function launchgame3() {
   //black tween
   black = game.add.image(0, 0, 'black');
   black.alpha = 1;
-  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween = game.add.tween(black).to( { alpha: 0 }, 5000, "Linear", true);
   tween.onComplete.add(function(){
     pauseVar = 0;
   }, this);
