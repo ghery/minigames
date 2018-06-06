@@ -85,12 +85,12 @@ function victory1(){
     {
         if (character.x < 0 && character.x + character.height < 0)
         {
-            defeat("Oops... tu n'as pas couru assez vite !\nTu as raté ton rendez-vous CAF !");
+            defeat("Oops... tu n'as pas couru assez vite !\nTu as raté ton rendez-vous à la Caf !");
             return (-1);
         }
         else if (timer.seconds >= TIME_LIMIT && character.x + character.height > 0)
         {
-            victory("Bien joué !", 1);
+            victory("Rien ne sert de courir...");
             return (1);
         }
     }
