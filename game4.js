@@ -46,7 +46,7 @@ var game4state = {
 
       instructions4 = game.add.image(0, 0, 'instructions4');
       instructions4.x = WIDTH / 2 - instructions4.width / 2;
-      instructions4.y = HEIGHT / 3;
+      instructions4.y =HEIGHT / 8;
 
       launchgame4();
     },
@@ -98,7 +98,7 @@ function launchgame4() {
   //black tween
   black = game.add.image(0, 0, 'black');
   black.alpha = 1;
-  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween = game.add.tween(black).to( { alpha: 0 }, 5000, "Linear", true);
   tween.onComplete.add(function(){
     timer.resume();
     pauseVar = 0;
