@@ -35,7 +35,6 @@ var game3state = {
         this.create_obstacle();
         game.time.events.repeat(Phaser.Timer.SECOND * 1, 15, this.create_obstacle, game);
 
-        game.input.addPointer();
         game.input.onUp.add(function ()
         {
             var tmp;
@@ -72,7 +71,6 @@ var game3state = {
       pauseButton.scale.setTo(0.10, 0.10);
       pauseButton.x = (WIDTH - pauseButton.width);
       pauseButton.y = 0;
-      game.input.addPointer();
       game.input.onUp.add(function ()
       {
         if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {

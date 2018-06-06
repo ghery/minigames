@@ -16,7 +16,6 @@ var game2state = {
       pauseButton.scale.setTo(0.10, 0.10);
       pauseButton.x = (WIDTH - pauseButton.width);
       pauseButton.y = 0;
-      game.input.addPointer();
       game.input.onUp.add(function ()
       {
         if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {
@@ -36,7 +35,7 @@ var game2state = {
       timer.start();
 
      game.physics.enable(portefeuille, Phaser.Physics.ARCADE);
-     game.input.addPointer();
+
      groupBillet = game.add.group();
      if (pauseVar == 0){
      game.time.events.repeat(Phaser.Timer.SECOND, nbBillet, function(){
@@ -65,7 +64,7 @@ var game2state = {
     if (game.input.onUp)
     {
         //  400 is the speed it will move towards the mouse
-        game.physics.arcade.moveToPointer(portefeuille, 1000);
+        game.physics.arcade.moveToPointer(portefeuille, 1500);
 
         //  if it's overlapping the mouse, don't move any more
         if (Phaser.Rectangle.contains(portefeuille.body, game.input.x, game.input.y))

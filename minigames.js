@@ -109,7 +109,7 @@ game.state.add('game8state', game8state);
         }
 
         function create(){
-
+          game.input.addPointer();
         }
 
         function update(){

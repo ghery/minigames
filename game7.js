@@ -21,7 +21,7 @@ var game7state = {
       pauseButton.scale.setTo(0.10, 0.10);
       pauseButton.x = (WIDTH - pauseButton.width);
       pauseButton.y = 0;
-      game.input.addPointer();
+
       game.input.onUp.add(function ()
       {
         if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {
@@ -79,7 +79,7 @@ var game7state = {
 */
       mMove = 0;
       mUp = 0;
-      game.input.addPointer();
+
       game.input.onUp.add(function ()
       {
           mUp++;

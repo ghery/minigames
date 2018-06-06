@@ -50,7 +50,7 @@ var gamestate = {
      timer = game.time.create(false);
      timer.start(); // quand timer fini, use destroy
 
-     game.input.addPointer();
+     
      game.input.onUp.add(function ()
      {
        if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {

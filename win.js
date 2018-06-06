@@ -75,62 +75,8 @@ var winstate = {
         //scoreText.x = WIDTH / 2 - scoreText.width / 2;
         //scoreText.y = HEIGHT / 2 - scoreText.height / 2 - scoreAdd.height - 20;
         scoreText.x = WIDTH / 2 - scoreText.width / 2;
-        scoreText.y = scoreAdd.y - scoreText.height;
+        scoreText.y = (scoreAdd.y - scoreText.height) - 20;
 
-        if(LASTLEVEL == 1){
-          card = game.add.image(0, 0, 'Carte1');
-          card.scale.setTo(0.7, 0.7);
-          card.x = game.world.centerX - card.width/2;
-          card.y = game.world.centerY - card.height/4;
-        }
-        else if (LASTLEVEL == 2) {
-          card = game.add.image(0, 0, 'Carte2');
-          card.scale.setTo(0.7, 0.7);
-          card.x = game.world.centerX - card.width/2;
-          card.y = game.world.centerY - card.height/4;
-        }
-        else if (LASTLEVEL == 3) {
-          card = game.add.image(0, 0, 'Carte3');
-          card.scale.setTo(0.7, 0.7);
-          card.x = game.world.centerX - card.width/2;
-          card.y = game.world.centerY - card.height/4;
-        }
-        else if (LASTLEVEL == 4) {
-          card = game.add.image(0, 0, 'Carte4');
-          card.scale.setTo(0.7, 0.7);
-          card.x = game.world.centerX - card.width/2;
-          card.y = game.world.centerY - card.height/4;
-        }
-        if(LASTLEVEL == 5){
-          card = game.add.image(0, 0, 'Carte5');
-          card.scale.setTo(0.7, 0.7);
-          card.x = game.world.centerX - card.width/2;
-          card.y = game.world.centerY - card.height/4;
-        }
-        else if (LASTLEVEL == 6) {
-          card = game.add.image(0, 0, 'Carte6');
-          card.scale.setTo(0.7, 0.7);
-          card.x = game.world.centerX - card.width/2;
-          card.y = game.world.centerY - card.height/4;
-        }
-        else if (LASTLEVEL == 7) {
-          card = game.add.image(0, 0, 'Carte7');
-          card.scale.setTo(0.7, 0.7);
-          card.x = game.world.centerX - card.width/2;
-          card.y = game.world.centerY - card.height/4;
-        }
-        else if (LASTLEVEL == 8) {
-          card = game.add.image(0, 0, 'Carte8');
-          card.scale.setTo(0.7, 0.7);
-          card.x = game.world.centerX - card.width/2;
-          card.y = game.world.centerY - card.height/4;
-        }
-
-        game.input.addPointer();
-        game.input.onUp.add(function ()
-        {
-          levelSelector();
-        }, game);
     },
 
     update: function() {
@@ -143,6 +89,7 @@ var winstate = {
         if (i == tmp)
         {
             scoreAdd.destroy();
+            createCard();
         }
     },
     request: function (){
@@ -159,6 +106,65 @@ var winstate = {
         }
     }
 };
+
+function createCard() {
+  text.destroy();
+
+  if(LASTLEVEL == 1){
+    card = game.add.image(0, 0, 'Carte1');
+    card.scale.setTo(0.9, 0.9);
+    card.x = game.world.centerX - card.width/2;
+    card.y = game.world.centerY - card.height/2.5;
+  }
+  else if (LASTLEVEL == 2) {
+    card = game.add.image(0, 0, 'Carte2');
+    card.scale.setTo(0.9, 0.9);
+    card.x = game.world.centerX - card.width/2;
+    card.y = game.world.centerY - card.height/2.5;
+  }
+  else if (LASTLEVEL == 3) {
+    card = game.add.image(0, 0, 'Carte3');
+    card.scale.setTo(0.9, 0.9);
+    card.x = game.world.centerX - card.width/2;
+    card.y = game.world.centerY - card.height/2.5;
+  }
+  else if (LASTLEVEL == 4) {
+    card = game.add.image(0, 0, 'Carte4');
+    card.scale.setTo(0.9, 0.9);
+    card.x = game.world.centerX - card.width/2;
+    card.y = game.world.centerY - card.height/2.5;
+  }
+  if(LASTLEVEL == 5){
+    card = game.add.image(0, 0, 'Carte5');
+    card.scale.setTo(0.9, 0.9);
+    card.x = game.world.centerX - card.width/2;
+    card.y = game.world.centerY - card.height/2.5;
+  }
+  else if (LASTLEVEL == 6) {
+    card = game.add.image(0, 0, 'Carte6');
+    card.scale.setTo(0.9, 0.9);
+    card.x = game.world.centerX - card.width/2;
+    card.y = game.world.centerY - card.height/2.5;
+  }
+  else if (LASTLEVEL == 7) {
+    card = game.add.image(0, 0, 'Carte7');
+    card.scale.setTo(0.9, 0.9);
+    card.x = game.world.centerX - card.width/2;
+    card.y = game.world.centerY - card.height/2.5;
+  }
+  else if (LASTLEVEL == 8) {
+    card = game.add.image(0, 0, 'Carte8');
+    card.scale.setTo(0.9, 0.9);
+    card.x = game.world.centerX - card.width/2;
+    card.y = game.world.centerY - card.height/2.5;
+  }
+
+  game.input.addPointer();
+  game.input.onUp.add(function ()
+  {
+    levelSelector();
+  }, game);
+}
 
 var losestate = {
 
