@@ -5,12 +5,10 @@ var score = 0;
 var game6state = {
 
     preload: function() {
-      game.load.image('papier', 'assets/Papier_2.png');
-      game.load.image('ecran', 'assets/Ecran.png');
-      game.load.image('instructions6', 'assets/instructions6.png');
     },
 
     create: function() {
+      pauseVar = 0;
 
       //PAUSE
       pauseButton = game.add.image(0, 0, 'pause');
@@ -46,7 +44,9 @@ var game6state = {
         papier.name = 'papier' + i;
         papier.inputEnabled = true;
         papier.input.enableDrag(false, true);
-        papier.events.onDragStop.add(onDragStop, this);
+        if (pauseVar == 0) {
+          papier.events.onDragStop.add(onDragStop, this);
+        }
 
         papiers.add(papier);
         i--;
@@ -62,6 +62,8 @@ var game6state = {
     instructions6 = game.add.image(0, 0, 'instructions6');
     instructions6.x = WIDTH / 2 - instructions6.width / 2;
     instructions6.y = HEIGHT / 3;
+
+    launchgame6();
     },
 
     update: function() {
@@ -69,7 +71,7 @@ var game6state = {
       print_timer(time_text);
 
       if(score == nb_papier){
-        victory("Plus rapide qu’un scanner super puissant !");
+        victory("Plus rapide qu’un scanner super puissant !", 6);
       }
 
       if(TIME_LIMIT - timer.seconds <= 0){
@@ -79,7 +81,7 @@ var game6state = {
 };
 
 function onDragStop(papier, pointer) {
-  if (checkOverlap(ecran, papier))
+  if (checkOverlap(ecran, papier) && pauseVar == 0)
     {
       papier.destroy();
       score += 1;
@@ -94,4 +96,17 @@ function checkOverlap(spriteA, spriteB) {
 
     return Phaser.Rectangle.intersects(boundsA, boundsB);
 
+}
+
+function launchgame6() {
+  timer.pause();
+  pauseVar = 1;
+  //black tween
+  black = game.add.image(0, 0, 'black');
+  black.alpha = 1;
+  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween.onComplete.add(function(){
+    timer.resume();
+    pauseVar = 0;
+  }, this);
 }

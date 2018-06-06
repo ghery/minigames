@@ -1,5 +1,4 @@
 var Speed = -100;
-var pauseVar = 0;
 
 var gamestate = {
 
@@ -8,6 +7,7 @@ var gamestate = {
     },
 
     create: function() {
+     pauseVar = 0;
      time_text = game.add.text(0, 0, "", time_text_style);
      game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -63,11 +63,15 @@ var gamestate = {
         Pause(0);
        }
      }, game);
+
+     launchgame1();
     },
 
     update: function() {
         print_timer(time_text);
-        route.tilePosition.x -= 2;
+        if(pauseVar == 0){
+          route.tilePosition.x -= 2;
+        }
         if (TIME_LIMIT - timer.seconds < 2)
             caf.x -= 2;
         if (victory1() != 0) // -1 defeat, 1 victory
@@ -91,4 +95,19 @@ function victory1(){
         }
     }
     return (0);
+}
+
+function launchgame1() {
+  timer.pause();
+  character.body.acceleration.x = 0;
+  pauseVar = 1;
+  //black tween
+  black = game.add.image(0, 0, 'black');
+  black.alpha = 1;
+  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween.onComplete.add(function(){
+    timer.resume();
+    character.body.acceleration.x = Speed;
+    pauseVar = 0;
+  }, this);
 }

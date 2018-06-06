@@ -14,6 +14,8 @@ var game7state = {
     },
 
     create: function() {
+      pauseVar = 0;
+
       //PAUSE
       pauseButton = game.add.image(0, 0, 'pause');
       pauseButton.scale.setTo(0.10, 0.10);
@@ -37,11 +39,11 @@ var game7state = {
       var iconSelected = 0;
 
       room = game.add.sprite(0, 0, 'room');
+      //room.scale.setTo(0.45, 0.45);
       room.x = WIDTH / 2 - room.width / 2;
       room.y = HEIGHT / 2 - room.height / 2;
 
       startNbIcon = 3;
-
 
 
       iconDesktop = game.add.sprite(0, 0, 'desktop');
@@ -86,7 +88,14 @@ var game7state = {
       timer = game.time.create(false);
       timer.start();
 
+      // instructions7
+
+      instructions7 = game.add.image(0, 0, 'instructions7');
+      instructions7.x = WIDTH / 2 - instructions7.width / 2;
+      instructions7.y = HEIGHT / 5;
+
       time_text = game.add.text(0, 0, "", time_text_style);
+      launchgame7();
     },
 
     update: function() {
@@ -99,9 +108,9 @@ var game7state = {
           if (mUp > 0)
           {
             if (this.objectPosOk(object) == 0)
-                defeat();
+                defeat("Tu feras mieux la prochaine fois...");
             else if (arrayObject.length == startNbIcon)
-                victory();
+                victory("Bien joué tu es un as du puzzle !", 7);
             //console.log(this.isIntersection(object, room));
             // verif object intersection
             mMove = 0;
@@ -118,6 +127,12 @@ var game7state = {
   createObject: function() {
       mMove = 1;
       object = game.add.sprite(0, 0, this.sprite); // bed
+      /*if (this.sprite == "closet")
+        object.scale.setTo(0.4, 0.4);
+      else if (this.sprite == "bed")
+        object.scale.setTo(0.5, 0.5);
+      else
+        object.scale.setTo(0.4, 0.4);*/
       object.inputEnabled = true;
       iconSelected = this.icon;
   },
@@ -153,7 +168,7 @@ var game7state = {
               {
                   if (this.isIntersection(object, arrayObject[i]))
                   {
-                    console.log("object array x : "+object.x);
+                    /*console.log("object array x : "+object.x);
                     console.log("object array y : "+object.y);
                     console.log("object array width : "+object.width);
                     console.log("object array height : "+object.height);
@@ -161,7 +176,7 @@ var game7state = {
                     console.log("object array "+i+" y : "+arrayObject[i].y);
                     console.log("object array "+i+" width : "+arrayObject[i].width);
                     console.log("object array "+i+" height : "+arrayObject[i].height);
-                    console.log("intersection defeat");
+                    console.log("intersection defeat");*/
                     return (0);
                   }
                   i++;
@@ -171,7 +186,7 @@ var game7state = {
           arrayObject.push(object);
       }
       else {
-          console.log("not in room");
+          //console.log("not in room");
           return (0);
       }
       return (1);
@@ -187,3 +202,16 @@ var game7state = {
           return (1);
   }
 };
+
+function launchgame7() {
+  timer.pause();
+  pauseVar = 1;
+  //black tween
+  black = game.add.image(0, 0, 'black');
+  black.alpha = 1;
+  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween.onComplete.add(function(){
+    timer.resume();
+    pauseVar = 0;
+  }, this);
+}

@@ -1,12 +1,12 @@
+var pauseVar;
+
 var game4state = {
 
     preload: function() {
-      game.load.image('round', 'assets/round.png');
-      game.load.image('centre', 'assets/centre_social.png');
-      game.load.image('instructions4', 'assets/instructions4.png');
     },
 
     create: function() {
+      pauseVar = 0;
 
       centre = game.add.sprite(0, 0, 'centre');
       centre.scale.setTo(0.5, 0.5);
@@ -47,6 +47,8 @@ var game4state = {
       instructions4 = game.add.image(0, 0, 'instructions4');
       instructions4.x = WIDTH / 2 - instructions4.width / 2;
       instructions4.y = HEIGHT / 3;
+
+      launchgame4();
     },
 
     update: function() {
@@ -54,7 +56,7 @@ var game4state = {
       print_timer(time_text);
 
       //mouvement rond
-      if (game.input.onUp)
+      if (game.input.onUp && pauseVar == 0)
       {
           //  1000 is the speed it will move towards the mouse
           game.physics.arcade.moveToXY(round, game.input.x - round.width/2, game.input.y - round.height/2, 1000, 0);
@@ -77,9 +79,10 @@ var game4state = {
       // condition de victoire
     if ((((round.x + round.width/2) >= (centre.x - 30 + centre.width/2)) & ((round.x + round.width/2) <= (centre.x + 30 + centre.width/2)))
     & (((round.y + round.height/2) >= (centre.y - 30 + centre.height/2)) & ((round.y + round.height/2) <= (centre.y + 30 + centre.height/2)))){
-
+      if (pauseVar == 0){
         round.body.velocity.setTo(0, 0);
-        victory("Waouh...Plus rapide que la lumière !");
+        victory("Waouh...Plus rapide que la lumière !", 4);
+      }
     }
 
     if(TIME_LIMIT - timer.seconds <= 0){
@@ -87,3 +90,17 @@ var game4state = {
     }
     }
 };
+
+
+function launchgame4() {
+  timer.pause();
+  pauseVar = 1;
+  //black tween
+  black = game.add.image(0, 0, 'black');
+  black.alpha = 1;
+  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween.onComplete.add(function(){
+    timer.resume();
+    pauseVar = 0;
+  }, this);
+}

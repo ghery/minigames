@@ -7,15 +7,15 @@ function initArrayLastLevel()
 
     while (i < LEVELNB)
     {
-        if (i == 2)
+        /*if (i == 2)
             arrayLastLevel[i] = 3;
         else if (i == 6)
             arrayLastLevel[i] = 7;
-        else
+        else*/
             arrayLastLevel[i] = 0;
         i++;
     }
-    console.log(arrayLastLevel);
+    //console.log(arrayLastLevel);
 }
 initArrayLastLevel();
 
@@ -70,13 +70,13 @@ function levelSelector(){
     arrayLastLevel[1] = 2;
     game.state.start('game2state');
 }
-  /*else if( random == 3)
+  else if( random == 3)
   {
    LASTLASTLEVEL = LASTLEVEL;
      LASTLEVEL = 3;
       arrayLastLevel[2] = 3;
      game.state.start('game3state');
- }*/
+ }
   else if( random == 4)
   {
     LASTLASTLEVEL = LASTLEVEL;
@@ -98,13 +98,13 @@ function levelSelector(){
     arrayLastLevel[5] = 6;
     game.state.start('game6state');
   }
-  // else if( random == 7)
-  // {
-  // LASTLASTLEVEL = LASTLEVEL;
-  //   LASTLEVEL = 7;
-  //   arrayLastLevel[6] = 7;
-  //   game.state.start('game7state');
-  // }
+  else if( random == 7)
+  {
+  LASTLASTLEVEL = LASTLEVEL;
+    LASTLEVEL = 7;
+    arrayLastLevel[6] = 7;
+    game.state.start('game7state');
+  }
   else if( random == 8)
   {
     LASTLASTLEVEL = LASTLEVEL;
@@ -118,5 +118,5 @@ function levelSelector(){
   }
   console.log("random:" + random);
   // game.state.start('game8state');
-  // LASTLEVEL = 2;
+  // LASTLEVEL = 8;
 }

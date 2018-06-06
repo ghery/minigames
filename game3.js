@@ -8,12 +8,65 @@ var b_down = false;
 var game3state = {
     preload: function() {
       //game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-      game.load.image('cochonours', 'assets/Cochonours_vector.png');
-      game.load.image('obstacle', 'assets/koala.png');
       //preload_font();
     },
 
     create: function() {
+      pauseVar = 0;
+
+        cursors = game.input.keyboard.createCursorKeys();
+        game.physics.startSystem(Phaser.Physics.ARCADE);
+
+        route = game.add.tileSprite(0, 0, WIDTH, HEIGHT, 'g3_route');
+
+        // CHARACTER
+
+        character =  game.add.sprite(0, 0, 'bus');
+        game.physics.enable(character);
+        character.body.collideWorldBounds = true;
+        //character.scale.setTo(0.10, 0.10)
+        character.body.onCollide = new Phaser.Signal();
+        character.body.onCollide.add(this.defeat, game);
+
+        // OBSTACLE
+        if (pauseVar == 0){
+
+        groupObstacle = game.add.group();
+        this.create_obstacle();
+        game.time.events.repeat(Phaser.Timer.SECOND * 1, 15, this.create_obstacle, game);
+
+        game.input.addPointer();
+        game.input.onUp.add(function ()
+        {
+            var tmp;
+            if (g3_move_y < game.input.y)
+            {
+                tmp = character.y + character.height;
+                if (tmp + character.height < HEIGHT)
+                    character.y = tmp;
+            }
+            else if (g3_move_y > game.input.y)
+            {
+                character.y -= character.height;
+            }
+            g3_move_y = -1;
+            g3_b = false;
+        }, game);
+        game.input.onDown.add(function ()
+        {
+            if (g3_move_y < 0)
+                g3_move_y = game.input.y;
+            g3_b = true;
+        }, game);
+
+      }
+
+      // INSTRUCTIONS
+
+      instructions3 = game.add.image(0, 0, 'instructions3');
+      instructions3.x = WIDTH / 2 - instructions3.width / 2;
+      instructions3.y = HEIGHT / 3;
+
       //PAUSE
       pauseButton = game.add.image(0, 0, 'pause');
       pauseButton.scale.setTo(0.10, 0.10);
@@ -30,52 +83,12 @@ var game3state = {
         }
       }, game);
 
-        cursors = game.input.keyboard.createCursorKeys();
-        game.physics.startSystem(Phaser.Physics.ARCADE);
-
-        // CHARACTER
-
-        character =  game.add.sprite(0, 0, 'cochonours');
-        game.physics.enable(character);
-        character.body.collideWorldBounds = true;
-        character.scale.setTo(0.10, 0.10)
-        character.body.onCollide = new Phaser.Signal();
-        character.body.onCollide.add(this.defeat, game);
-
-        // OBSTACLE
-
-        groupObstacle = game.add.group();
-        this.create_obstacle();
-        game.time.events.repeat(Phaser.Timer.SECOND * 1, 15, this.create_obstacle, game);
-
-        game.input.addPointer();
-        game.input.onUp.add(function ()
-        {
-            var tmp;
-            if (g3_move_y < game.input.y)
-            {
-                tmp = character.y + obstacle.height;
-                if (tmp + character.height < HEIGHT)
-                    character.y = tmp;
-            }
-            else if (g3_move_y > game.input.y)
-            {
-                character.y -= obstacle.height;
-            }
-            g3_move_y = -1;
-            g3_b = false;
-        }, game);
-        game.input.onDown.add(function ()
-        {
-            if (g3_move_y < 0)
-                g3_move_y = game.input.y;
-            g3_b = true;
-        }, game);
+      launchgame3();
     },
     create_obstacle: function(){
         obstacle = groupObstacle.create(WIDTH + 200, 0, 'obstacle');
-        obstacle.scale.setTo(0.3, 0.3);
-        obstacle.y = Math.floor(Math.random() * parseInt(HEIGHT / obstacle.height)) * obstacle.height;
+        //obstacle.scale.setTo(0.3, 0.3);
+        obstacle.y = Math.floor(Math.random() * parseInt(HEIGHT / character.height)) * character.height;
         game.physics.enable(obstacle);
         obstacle.checkCollision = true;
         obstacle.body.immovable = true;
@@ -83,14 +96,26 @@ var game3state = {
     }
     ,
     update: function() {
+        route.tilePosition.x -= 2;
         game.physics.arcade.collide(character, groupObstacle);
         if (groupObstacle.right < 0)
             this.victory();
     },
     victory: function(){
-        victory("Bravo tu as évité les obstacles !");
+        victory("Bon… à l’année prochaine ?", 3);
     },
     defeat: function(){
-        defeat("BADABOUMBOUMBOUM !");
+        defeat("Super tu peux aller te baigner !");
     }
 };
+
+function launchgame3() {
+  pauseVar = 1;
+  //black tween
+  black = game.add.image(0, 0, 'black');
+  black.alpha = 1;
+  tween = game.add.tween(black).to( { alpha: 0 }, 2000, "Linear", true);
+  tween.onComplete.add(function(){
+    pauseVar = 0;
+  }, this);
+}

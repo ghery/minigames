@@ -34,7 +34,7 @@ var firstRunLandscape = false;
 var menustate = {
   preload: function() {
   },
-  
+
   create: function () {
     game.stage.backgroundColor = "#d9c88b";
 
@@ -68,6 +68,11 @@ var menustate = {
     Jouer.x = WIDTH / 2 - Jouer.width / 2;
     Jouer.y = Cochon.y + Cochon.height + Jouer.height / 2;
 
+/*    Jouer = game.add.button(0, 550, 'Jouer', actionOnClick2, game, 2, 1, 0);
+    Jouer.scale.setTo(0.4, 0.4);
+    Jouer.x = WIDTH / 2 - Jouer.width / 2;
+    Jouer.y = Cochon.y + Cochon.height + Jouer.height / 2 + 150;
+*/
   },
 
   update: function () {
@@ -77,5 +82,11 @@ var menustate = {
 };
 
 function actionOnClick () {
-  levelSelector();
+    //game.state.start('game3state');
+    levelSelector();
 }
+/*
+function actionOnClick2 () {
+  game.state.start('cardstate');
+}
+*/
