@@ -13,3 +13,12 @@ function print_timer(txt)
     if (timer && timer.seconds)
         txt.setText("Temps restant : "+(TIME_LIMIT - parseInt(timer.seconds)));
 }
+
+function print_timer2(txt, val)
+{
+    txt.x = 0;
+    txt.y = 0;
+    txt.addColor("#000", 0);
+    if (timer && timer.seconds)
+        txt.setText("Temps restant : "+(val - parseInt(timer.seconds)));
+}

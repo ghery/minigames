@@ -10,10 +10,12 @@ var game7state = {
     iconSelected: 0,
     mMove: 0,
     mUp: 0,
+    gameTime: 0,
     preload: function() {
     },
 
     create: function() {
+      gameTime = 15;
       pauseVar = 0;
 
       //PAUSE
@@ -99,8 +101,8 @@ var game7state = {
     },
 
     update: function() {
-      print_timer(time_text);
-      if (timer.seconds >= TIME_LIMIT)
+      print_timer2(time_text, gameTime);
+      if (timer.seconds >= gameTime)
         defeat();
       else if (mMove == 1 && object != 0)
       {
