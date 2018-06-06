@@ -102,10 +102,10 @@ var game3state = {
             this.victory();
     },
     victory: function(){
-        victory("Bon… à l’année prochaine ?", 3);
+        victory("Super tu peux aller te baigner !", 3);
     },
     defeat: function(){
-        defeat("Super tu peux aller te baigner !");
+        defeat("Bon… à l’année prochaine ?");
     }
 };
 

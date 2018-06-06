@@ -226,7 +226,7 @@ var losestate = {
         }
         else if(LIFE == 0){
           SCORE = 0;
-          text = game.add.text(0, 0, "GAME OVER!");
+          text = game.add.text(0, 0, "GAME OVER !");
           text.font = 'Montserrat';
           text.addColor("#fff", 0);
           text.fontSize = 40;

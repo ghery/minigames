@@ -64,7 +64,7 @@ var menustate = {
     Title.y = Cochon.y - Title.height * 1.5;
 
     Jouer = game.add.button(0, 550, 'Jouer', actionOnClick, game, 2, 1, 0);
-    Jouer.scale.setTo(0.6, 0.6);
+    Jouer.scale.setTo(0.8, 0.8);
     Jouer.x = WIDTH / 2 - Jouer.width / 2;
     Jouer.y = Cochon.y + Cochon.height + Jouer.height / 2;
 
