@@ -57,3 +57,8 @@ input[type=text]{
     text-align: center;
     padding: 0.5px;
 }
+
+@font-face {
+  font-family: 'SuperClarendon';
+  src: url(fonts/SuperClarendon.ttf);
+}

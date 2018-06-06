@@ -36,7 +36,7 @@ var menustate = {
   },
 
   create: function () {
-    game.stage.backgroundColor = "#d9c88b";
+    game.stage.backgroundColor = "#ccffff";
 
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 

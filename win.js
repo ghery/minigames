@@ -45,7 +45,7 @@ var winstate = {
     create: function() {
         text = game.add.text(20, 20, win_message);
         text.font = 'Montserrat';
-        text.addColor("#fff", 0);
+        text.addColor("#000", 0);
         text.fontSize = 40;
         text.align = "center";
         text.x = game.world.centerX - text.width / 2; // calcul a faire apres avoir defini la police
@@ -61,7 +61,7 @@ var winstate = {
 
         scoreAdd = game.add.text(0, 0, "+"+tmp);
         scoreAdd.font = 'Montserrat';
-        scoreAdd.addColor("#fff", 0);
+        scoreAdd.addColor("#000", 0);
         scoreAdd.fontSize = 30;
         //scoreAdd.x = WIDTH / 2 - scoreAdd.width / 2;
         //scoreAdd.y = HEIGHT / 2 - scoreAdd.height / 2;
@@ -70,7 +70,7 @@ var winstate = {
 
         scoreText = game.add.text(0, 0, "Score: " + (SCORE - tmp));
         scoreText.font = 'Montserrat';
-        scoreText.addColor("#fff", 0);
+        scoreText.addColor("#000", 0);
         scoreText.fontSize = 40;
         //scoreText.x = WIDTH / 2 - scoreText.width / 2;
         //scoreText.y = HEIGHT / 2 - scoreText.height / 2 - scoreAdd.height - 20;
@@ -170,7 +170,7 @@ var losestate = {
         if (LIFE == 2){
           text = game.add.text(0, 0, lose_message);
           text.font = 'Montserrat';
-          text.addColor("#fff", 0);
+          text.addColor("#000", 0);
           text.fontSize = 40;
           text.align = "center";
           text.x = game.world.centerX - text.width / 2; // calcul a faire apres avoir defini la police
@@ -200,7 +200,7 @@ var losestate = {
         else if (LIFE == 1){
           text = game.add.text(0, 0, lose_message);
           text.font = 'Montserrat';
-          text.addColor("#fff", 0);
+          text.addColor("#000", 0);
           text.fontSize = 40;
           text.align = "center";
           text.x = game.world.centerX - text.width / 2; // calcul a faire apres avoir defini la police
@@ -228,7 +228,7 @@ var losestate = {
           SCORE = 0;
           text = game.add.text(0, 0, "GAME OVER !");
           text.font = 'Montserrat';
-          text.addColor("#fff", 0);
+          text.addColor("#000", 0);
           text.fontSize = 40;
           text.align = "center";
           text.x = game.world.centerX - text.width / 2; // calcul a faire apres avoir defini la police

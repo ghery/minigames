@@ -95,7 +95,6 @@ game.state.add('game8state', game8state);
           game.load.image('Carte8', 'assets/Carte8.png');
 
           //LOOSE
-          game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
           game.load.image('coeur', 'assets/coeur.png');
 
           //PAUSE

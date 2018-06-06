@@ -36,7 +36,7 @@ var cardstate = {
               text = game.add.text(0, 0, "Cartes : "+this.nbArrayCardsWin()+" / "+LEVELNB);
               text.x = WIDTH / 2 - text.width / 2;
               text.y = card.y - 80 - text.height;
-              text.addColor("#fff", 0);
+              text.addColor("#000", 0);
               text.fontSize = 40;
               text.align = "center";
           }
