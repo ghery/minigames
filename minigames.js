@@ -49,7 +49,10 @@ game.state.add('game8state', game8state);
 
           //GAME 3
           game.load.image('bus', 'assets/bus.png');
-          game.load.image('obstacle', 'assets/g3_obstacle.png');
+          //game.load.image('g3_obstacle', 'assets/g3_obstacle.png');
+          game.load.image('g3_obstacle1', 'assets/g3_obstacle.png');
+          game.load.image('g3_obstacle2', 'assets/g3_obstacle2.png');
+          game.load.image('g3_obstacle3', 'assets/g3_obstacle3.png');
           game.load.image('g3_route', 'assets/g3_route.png');
           game.load.image('instructions3', 'assets/Instructions3.png');
 

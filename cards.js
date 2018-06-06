@@ -24,13 +24,18 @@ var cardstate = {
       {
           //card = game.add.image(0, 0, 'Carte'+(i + 1));
           if (arrayCardsWin[i] > 0)
-            card = game.add.image(0, 0, 'Carte'+(i + 1));
+          {
+              var nameCard = 'Carte'+(i + 1);
+              card = game.add.image(0, 0, nameCard);
+          }
           else
-            card = game.add.image(0, 0, 'blackCarte');
+          {
+              var nameCard = 'blackCarte';
+              card = game.add.image(0, 0, 'blackCarte');
+          }
           card.scale.setTo(0.2, 0.2);
           card.x = 40 + WIDTH / 2 - ((card.width + 40) * maxColumn / 2) + (card.width + 40) * column;
           card.y = (40 + HEIGHT / 2 - (card.height + 40) * maxRow / 2) + (card.height + 40) * row;
-          card.events.onInputDown.add(this.zoomCard, {test : "test"});
           if (i == 0)
           {
               text = game.add.text(0, 0, "Cartes : "+this.nbArrayCardsWin()+" / "+LEVELNB);
@@ -47,6 +52,8 @@ var cardstate = {
           column++;
           if (column >= maxColumn)
             column = 0;
+        card.inputEnabled = true;
+        card.events.onInputDown.add(this.zoomCard, {cardName : nameCard});
       }
       // ajouter des fleches gauches droite si jamais plus de cartes existante
     },
@@ -66,6 +73,10 @@ var cardstate = {
         return (nbCards);
     },
     zoomCard : function(){
-        console.log("t : "+this.test);
+        cardSelected = game.add.image(0, 0, this.cardName);
+        cardSelected.x = WIDTH / 2 - cardSelected.width / 2;
+        cardSelected.y = HEIGHT / 2 - cardSelected.height / 2;
+        cardSelected.inputEnabled = true;
+        cardSelected.events.onInputDown.add(function(){ this.cardSelected.destroy()}, {cardSelected : cardSelected});
     }
 };
