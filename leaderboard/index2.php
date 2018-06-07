@@ -15,49 +15,53 @@ function getTab($pdo, $sql)
 
 <link rel="stylesheet" href="../style.css" />
 
-<h2 class="LeaderBoard">
-    LeaderBoard
-</h2>
+<div class="divLeaderboard">
+  <h2 class="LeaderBoard">
+      LeaderBoard
+  </h2>
 
-<!--<button onclick="request()">Click me</button>
--->
-<table>
-  <tr class="firstLine">
-    <th>Position</th>
-    <th>Nom</th>
-    <th>Score</th>
-  </tr>
-  <tr id="First">
+  <!--<button onclick="request()">Click me</button>
+  -->
+  <table>
+    <tr class="firstLine">
+      <th>Position</th>
+      <th>Nom</th>
+      <th>Score</th>
+    </tr>
+    <tr id="First">
+        <td>
+            <?php echo $key + 1; ?>
+        </td>
       <td>
-          <?php echo $key + 1; ?>
+          <?php echo $tab[0]['nom']; ?>
       </td>
-    <td>
-        <?php echo $tab[0]['nom']; ?>
-    </td>
-    <td>
-        <?php echo $tab[0]['score']; ?>
-    </td>
-  </tr>
-<?php
-    foreach ($tab as $key => $value) {
-      if ($key == 0) continue;
-        ?>
-        <tr>
+      <td>
+          <?php echo $tab[0]['score']; ?>
+      </td>
+    </tr>
+  <?php
+      foreach ($tab as $key => $value) {
+        if ($key == 0) continue;
+          ?>
+          <tr>
+              <td>
+                  <?php echo $key + 1; ?>
+              </td>
             <td>
-                <?php echo $key + 1; ?>
+                <?php echo $value['nom']; ?>
             </td>
-          <td>
-              <?php echo $value['nom']; ?>
-          </td>
-          <td>
-              <?php echo $value['score']; ?>
-          </td>
-        </tr>
-        <?
-    }
-?>
-</table>
-<script>
+            <td>
+                <?php echo $value['score']; ?>
+            </td>
+          </tr>
+          <?
+      }
+  ?>
+  </table>
+  <script>
+</div>
+
+
 /*
 function request (){
 
