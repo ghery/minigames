@@ -30,6 +30,11 @@ var game8state = {
         }
       }, game);
 
+      moniteur = game.add.sprite(0, 0, 'moniteur');
+      moniteur.scale.setTo(0.5, 0.5);
+      moniteur.x = WIDTH/2 - moniteur.width/2;
+      moniteur.y = HEIGHT/2 - moniteur.height/1.5;
+
       enfant1 = game.add.sprite(0, 0, 'enfant1');
       game.physics.enable(enfant1);
       enfant1.scale.setTo(0.25, 0.25);
