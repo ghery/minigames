@@ -47,11 +47,11 @@ var game4state = {
 
       time_text = game.add.text(0, 0, "", time_text_style);
 
-      // instructions4
+      // ouverture4
 
-      instructions4 = game.add.image(0, 0, 'instructions4');
-      instructions4.x = WIDTH / 2 - instructions4.width / 2;
-      instructions4.y =HEIGHT / 8;
+      ouverture4 = game.add.image(0, 0, 'ouverture4');
+      ouverture4.x = WIDTH / 2 - ouverture4.width / 2;
+      ouverture4.y =HEIGHT / 8;
 
       launchgame4();
     },
@@ -107,5 +107,9 @@ function launchgame4() {
   tween.onComplete.add(function(){
     timer.resume();
     pauseVar = 0;
+    ouverture4.destroy();
+    instructions4 = game.add.image(0, 0, 'instructions4');
+    instructions4.x = WIDTH / 2 - instructions4.width / 2;
+    instructions4.y =HEIGHT / 8;
   }, this);
 }

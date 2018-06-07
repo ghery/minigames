@@ -32,7 +32,7 @@ var game2state = {
       }, game);
 
       portefeuille = game.add.sprite(game.world.centerX, 700, 'portefeuille');
-      portefeuille.scale.setTo(0.5, 0.5);
+      portefeuille.scale.setTo(0.25, 0.25);
       salaire = game.add.sprite(game.world.centerX, 0, 'salaire');
       salaire.scale.setTo(0.30, 0.30);
 
@@ -47,7 +47,7 @@ var game2state = {
        var billetX = randomX();
        salaire.x = billetX;
        var Billet = groupBillet.create(billetX, -200, 'Billet');
-       Billet.scale.setTo(0.25, 0.25);
+       Billet.scale.setTo(0.3, 0.3);
        game.physics.enable(Billet);
 
        Billet.body.acceleration.y = 600;
@@ -56,11 +56,11 @@ var game2state = {
     }
      score = 0;
 
-     // instructions2
+     // ouverture2
 
-     instructions2 = game.add.image(0, 0, 'instructions2');
-     instructions2.x = WIDTH / 2 - instructions2.width / 2;
-     instructions2.y = HEIGHT / 8;
+     ouverture2 = game.add.image(0, 0, 'ouverture2');
+     ouverture2.x = WIDTH / 2 - ouverture2.width / 2;
+     ouverture2.y = HEIGHT / 8;
      launchgame2();
     },
 
@@ -119,6 +119,10 @@ function launchgame2() {
   tween.onComplete.add(function(){
     timer.resume();
     pauseVar = 0;
+    ouverture2.destroy();
+    instructions2 = game.add.image(0, 0, 'instructions2');
+    instructions2.x = WIDTH / 2 - instructions2.width / 2;
+    instructions2.y = HEIGHT / 8;
   }, this);
 }
 

@@ -21,9 +21,9 @@ var gamestate = {
 
      // INSTRUCTIONS
 
-     instructions = game.add.image(0, 0, 'instructions');
-     instructions.x = WIDTH / 2 - instructions.width / 2;
-     instructions.y = HEIGHT / 8;
+     ouverture = game.add.image(0, 0, 'ouverture');
+     ouverture.x = WIDTH / 2 - ouverture.width / 2;
+     ouverture.y = HEIGHT / 8;
 
      // ROUTE
 
@@ -114,5 +114,9 @@ function launchgame1() {
     timer.resume();
     character.body.acceleration.x = Speed;
     pauseVar = 0;
+    ouverture.destroy();
+    instructions = game.add.image(0, 0, 'instructions');
+    instructions.x = WIDTH / 2 - instructions.width / 2;
+    instructions.y = HEIGHT / 8;
   }, this);
 }

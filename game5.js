@@ -54,11 +54,11 @@ var game5state = {
         timer = game.time.create(false);
         timer.start();
 
-        // instructions5
+        // ouverture5
 
-        instructions5 = game.add.image(0, 0, 'instructions5');
-        instructions5.x = WIDTH / 2 - instructions5.width / 2;
-        instructions5.y =HEIGHT / 8;
+        ouverture5 = game.add.image(0, 0, 'ouverture5');
+        ouverture5.x = WIDTH / 2 - ouverture5.width / 2;
+        ouverture5.y =HEIGHT / 8;
 
         pauseVar = 0;
 
@@ -172,5 +172,9 @@ function launchgame5() {
   tween.onComplete.add(function(){
     timer.resume();
     pauseVar = 0;
+    ouverture5.destroy();
+    instructions5 = game.add.image(0, 0, 'instructions5');
+    instructions5.x = WIDTH / 2 - instructions5.width / 2;
+    instructions5.y =HEIGHT / 8;
   }, this);
 }

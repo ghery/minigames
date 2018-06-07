@@ -5,6 +5,20 @@
 // initialise Phaser
 game = new Phaser.Game(WIDTH, HEIGHT, Phaser.CANVAS, '', { preload: preload, create: create, update: update });
 
+WebFontConfig = {
+
+    //  'active' means all requested fonts have finished loading
+    //  We set a 1 second delay before calling 'createText'.
+    //  For some reason if we don't the browser cannot render the text the first time it's created.
+    active: function() { game.time.events.add(Phaser.Timer.SECOND, createText, this); },
+
+    //  The Google Fonts we want to load (specify as many as you like in the array)
+    google: {
+      families: ['Song Myung']
+    }
+
+};
+
         // game.state.add('bootstate', bootstate);
         game.state.add('menustate', menustate);
         //game.state.add('runstate', runstate);
@@ -40,6 +54,7 @@ game.state.add('game8state', game8state);
           // GAME 1
           game.load.image('cochonours', 'assets/Cochonours_vector.png');
           game.load.image('instructions', 'assets/Instructions1.png');
+          game.load.image('ouverture', 'assets/Ouverture1.png');
           game.load.image('route', 'assets/Route_jeu1.png');
           game.load.image('caf', 'assets/CAF.png');
 
@@ -47,6 +62,7 @@ game.state.add('game8state', game8state);
           game.load.image('portefeuille', 'assets/portefeuille.png');
           game.load.image('Billet', 'assets/Billets.png');
           game.load.image('instructions2', 'assets/Instructions2.png');
+          game.load.image('ouverture2', 'assets/Ouverture2.png');
           game.load.image('salaire', 'assets/salaire.png');
 
           //GAME 3
@@ -57,11 +73,13 @@ game.state.add('game8state', game8state);
           game.load.image('g3_obstacle3', 'assets/g3_obstacle3.png');
           game.load.image('g3_route', 'assets/g3_route.png');
           game.load.image('instructions3', 'assets/Instructions3.png');
+          game.load.image('ouverture3', 'assets/Ouverture3.png');
 
           //GAME 4
           game.load.image('round', 'assets/round.png');
           game.load.image('centre', 'assets/centre_social.png');
           game.load.image('instructions4', 'assets/Instructions4.png');
+          game.load.image('ouverture4', 'assets/Ouverture4.png');
 
           //GAME 5
           //game.load.image('cochonours', 'assets/Cochonours_vector.png');
@@ -69,11 +87,13 @@ game.state.add('game8state', game8state);
           game.load.image('table', 'assets/table.png');
           game.load.image('fond', 'assets/fondCouloir.png');
           game.load.image('instructions5', 'assets/Instructions5.png');
+          game.load.image('ouverture5', 'assets/Ouverture5.png');
 
           //GAME 6
           game.load.image('papier', 'assets/Papier_2.png');
           game.load.image('ecran', 'assets/Ecran.png');
           game.load.image('instructions6', 'assets/Instructions6.png');
+          game.load.image('ouverture6', 'assets/Ouverture6.png');
 
           //GAME 7
           game.load.image('room', 'assets/fondRoom.png');
@@ -81,12 +101,14 @@ game.state.add('game8state', game8state);
           game.load.image('closet', 'assets/closet.png');
           game.load.image('desktop', 'assets/desktop.png');
           game.load.image('instructions7', 'assets/Instructions7.png');
+          game.load.image('ouverture7', 'assets/Ouverture7.png');
 
           //GAME 8
-          game.load.image('enfant1', 'assets/Cochon.png');
-          game.load.image('enfant2', 'assets/Perroquet.png');
-          game.load.image('enfant3', 'assets/Perroquet_inv.png');
+          game.load.image('enfant1', 'assets/bebeCochonours.png');
+          game.load.image('enfant2', 'assets/bebePerroquet.png');
+          game.load.image('enfant3', 'assets/bebeLapin.png');
           game.load.image('instructions8', 'assets/Instructions8.png');
+          game.load.image('ouverture8', 'assets/Ouverture8.png');
 
           //WIN
           game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');

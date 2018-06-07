@@ -62,11 +62,11 @@ var game6state = {
 
     time_text = game.add.text(0, 0, "", time_text_style);
 
-    // instructions6
+    // ouverture6
 
-    instructions6 = game.add.image(0, 0, 'instructions6');
-    instructions6.x = WIDTH / 2 - instructions6.width / 2;
-    instructions6.y = HEIGHT / 8;
+    ouverture6 = game.add.image(0, 0, 'ouverture6');
+    ouverture6.x = WIDTH / 2 - ouverture6.width / 2;
+    ouverture6.y = HEIGHT / 8;
 
     launchgame6();
     },
@@ -113,5 +113,9 @@ function launchgame6() {
   tween.onComplete.add(function(){
     timer.resume();
     pauseVar = 0;
+    ouverture6.destroy();
+    instructions6 = game.add.image(0, 0, 'instructions6');
+    instructions6.x = WIDTH / 2 - instructions6.width / 2;
+    instructions6.y = HEIGHT / 8;
   }, this);
 }
