@@ -105,6 +105,7 @@ game.state.add('game8state', game8state);
           game.load.image('enfant1', 'assets/bebeCochonours.png');
           game.load.image('enfant2', 'assets/bebePerroquet.png');
           game.load.image('enfant3', 'assets/bebeLapin.png');
+          game.load.image('moniteur', 'assets/moniteur.png');
           game.load.image('instructions8', 'assets/Instructions8.png');
           game.load.image('ouverture8', 'assets/Ouverture8.png');
 
