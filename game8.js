@@ -27,29 +27,29 @@ var game8state = {
 
       enfant1 = game.add.sprite(0, 0, 'enfant1');
       game.physics.enable(enfant1);
-      enfant1.scale.setTo(0.15, 0.15);
-      enfant1.x = WIDTH/2 - enfant1.width;
-      enfant1.y = HEIGHT/2 - enfant1.height;
+      enfant1.scale.setTo(0.25, 0.25);
+      enfant1.x = WIDTH/2 - enfant1.width/2;
+      enfant1.y = HEIGHT/2 - enfant1.height/2;
       enfant1.body.acceleration.y = 2000;
       enfant1.body.maxVelocity.y =  speed();
       enfant1.inputEnabled = true;
       enfant1.input.enableDrag(false, true);
 
-      enfant2 = game.add.sprite(0, 0, 'enfant2');
+      enfant2 = game.add.sprite(0, 0, 'enfant3');
       game.physics.enable(enfant2);
-      enfant2.scale.setTo(0.25, 0.25);
-      enfant2.x = WIDTH/2 - enfant2.width;
-      enfant2.y = HEIGHT/2 - enfant2.height;
+      enfant2.scale.setTo(0.3, 0.3);
+      enfant2.x = WIDTH/2 - enfant2.width/2;
+      enfant2.y = HEIGHT/2 - enfant2.height/2;
       enfant2.body.acceleration.x = 2000;
       enfant2.body.maxVelocity.x = -1 * speed();
       enfant2.inputEnabled = true;
       enfant2.input.enableDrag(false, true);
 
-      enfant3 = game.add.sprite(0, 0, 'enfant3');
+      enfant3 = game.add.sprite(0, 0, 'enfant2');
       game.physics.enable(enfant3);
-      enfant3.scale.setTo(0.25, 0.25);
-      enfant3.x = WIDTH/2 - enfant3.width;
-      enfant3.y = HEIGHT/2 - enfant3.height;
+      enfant3.scale.setTo(0.2, 0.2);
+      enfant3.x = WIDTH/2 - enfant3.width/2;
+      enfant3.y = HEIGHT/2 - enfant3.height/2;
       enfant3.body.acceleration.x = 2000;
       enfant3.body.maxVelocity.x = speed();
       enfant3.inputEnabled = true;
