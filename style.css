@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette|Roboto');
+
 body {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
+    background-color: #ccffff;
 }
 
 #turn{
@@ -35,18 +38,31 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     //width: 100%;
-    width: 80%;
+    width: 95%;
     margin: auto;
+    font-size: 35px;
 }
 
 td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #a3cccc;
     text-align: left;
     padding: 8px;
+    font-family: 'Inconsolata', monospace;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+  border: 1px solid #b7e5e5;
+  background-color: #b7e5e5;
+}
+
+#First{
+  background-color: #F6DC12;
+  border: 1px solid #F6DC12;
+}
+
+.firstLine{
+  background-color: #a3cccc;
+  color: #fff;
 }
 
 input[type=text]{
@@ -58,7 +74,10 @@ input[type=text]{
     padding: 0.5px;
 }
 
-@font-face {
-  font-family: 'SuperClarendon';
-  src: url(fonts/SuperClarendon.ttf);
+.LeaderBoard {
+  color: #000;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 1px 0 0 black, 0 1px 0 black, 0 -1px 0 black, -1px 0 0 black;
+  font-size: 80px;
+  text-align: center;
 }

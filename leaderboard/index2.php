@@ -15,20 +15,32 @@ function getTab($pdo, $sql)
 
 <link rel="stylesheet" href="../style.css" />
 
-<h2>
+<h2 class="LeaderBoard">
     LeaderBoard
 </h2>
 
 <!--<button onclick="request()">Click me</button>
 -->
 <table>
-  <tr>
+  <tr class="firstLine">
     <th>Position</th>
     <th>Nom</th>
     <th>Score</th>
   </tr>
+  <tr id="First">
+      <td>
+          <?php echo $key + 1; ?>
+      </td>
+    <td>
+        <?php echo $tab[0]['nom']; ?>
+    </td>
+    <td>
+        <?php echo $tab[0]['score']; ?>
+    </td>
+  </tr>
 <?php
     foreach ($tab as $key => $value) {
+      if ($key == 0) continue;
         ?>
         <tr>
             <td>
