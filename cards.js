@@ -55,9 +55,16 @@ var cardstate = {
         card.inputEnabled = true;
         card.events.onInputDown.add(this.zoomCard, {cardName : nameCard});
       }
+      Menu = game.add.button(0, 550, 'Menu', this.returnMenu, game, 2, 1, 0);
+      Menu.scale.setTo(0.5, 0.5);
+      Menu.x = card.x - card.height * (maxColumn / 2) - Menu.width / 2;
+      Menu.y = card.y + card.height + Menu.height;
       // ajouter des fleches gauches droite si jamais plus de cartes existante
     },
-
+    returnMenu : function(){
+        game.state.start('menustate');
+    }
+    ,
     update: function() {
     },
     nbArrayCardsWin : function(){

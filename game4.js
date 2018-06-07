@@ -26,6 +26,11 @@ var game4state = {
 
       game.input.onUp.add(function ()
       {
+          if (game.input.x <= (Menu.x + Menu.width) && game.input.x >= Menu.x && game.input.y <= (Menu.y + Menu.height) && game.input.y >= Menu.y)
+          {
+             Pause(0);
+             game.state.start('menustate');
+          }
         if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {
           Pause(1);
         }

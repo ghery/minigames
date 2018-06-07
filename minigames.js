@@ -33,6 +33,8 @@ game.state.add('game8state', game8state);
           game.load.image('Lapin', 'assets/Lapin.png');
           game.load.image('Perroquet', 'assets/Perroquet.png');
           game.load.image('Jouer', 'assets/Bouton_jouer.png');
+          game.load.image('Cartes', 'assets/Bouton_cartes.png');
+          game.load.image('Menu', 'assets/Bouton_menu.png');
           game.load.image('Title', 'assets/Titraille_cafouillages.png');
 
           // GAME 1
@@ -98,7 +100,9 @@ game.state.add('game8state', game8state);
           game.load.image('Carte8', 'assets/Carte8.png');
 
           //LOOSE
-          game.load.image('coeur', 'assets/coeur.png');
+          game.load.image('coeur1', 'assets/coeur.png');
+          game.load.image('coeur2', 'assets/coeur2.png');
+          game.load.image('coeur3', 'assets/coeur3.png');
 
           //PAUSE
           game.load.image('pause', 'assets/pause.png');

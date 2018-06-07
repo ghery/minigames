@@ -65,15 +65,15 @@ var menustate = {
     Title.y = Cochon.y - Title.height * 1.5;
 
     Jouer = game.add.button(0, 550, 'Jouer', actionOnClick, game, 2, 1, 0);
-    Jouer.scale.setTo(0.8, 0.8);
+    //Jouer.scale.setTo(0.8, 0.8);
     Jouer.x = WIDTH / 2 - Jouer.width / 2;
     Jouer.y = Cochon.y + Cochon.height + Jouer.height / 2;
 
-    /*Jouer = game.add.button(0, 550, 'Jouer', actionOnClick2, game, 2, 1, 0);
-    Jouer.scale.setTo(0.4, 0.4);
+    Jouer = game.add.button(0, 550, 'Cartes', actionOnClick2, game, 2, 1, 0);
+    Jouer.scale.setTo(0.5, 0.5);
     Jouer.x = WIDTH / 2 - Jouer.width / 2;
     Jouer.y = Cochon.y + Cochon.height + Jouer.height / 2 + 150;
-    */
+
   },
 
   update: function () {
@@ -83,7 +83,7 @@ var menustate = {
 };
 
 function actionOnClick () {
-    //game.state.start('game3state');
+    //game.state.start('game5state');
     levelSelector();
 }
 

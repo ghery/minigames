@@ -70,12 +70,18 @@ var game5state = {
         game.input.addPointer();
         game.input.onUp.add(function ()
         {
+          if (game.input.x <= (Menu.x + Menu.width) && game.input.x >= Menu.x && game.input.y <= (Menu.y + Menu.height) && game.input.y >= Menu.y)
+          {
+             Pause(0);
+             game.state.start('menustate');
+          }
           if (game.input.x > (WIDTH - pauseButton.width) && game.input.y < pauseButton.height && pauseVar == 0) {
             Pause(1);
           }
           else if (game.input.x > (WIDTH - (pauseButton.width + 5)) && game.input.y < (pauseButton.height + 5) && pauseVar == 1) {
            Pause(0);
           }
+
         }, game);
 
         launchgame5();
@@ -149,7 +155,8 @@ var game5state = {
     },
 
     cartonOnTable : function(){
-        if (carton.x <= table.x && (carton.x + carton.width) <= table.x || carton.x > table.x + table.width && (carton.x + carton.width) > table.x + table.width)
+        var tmp = 21; // ecart avec l asset carton
+        if (carton.x <= table.x && (carton.x + carton.width - tmp) <= table.x || carton.x > table.x + table.width && (carton.x + carton.width + tmp) > table.x + table.width)
             return (0);
         return (1);
     }
