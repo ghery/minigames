@@ -3,7 +3,7 @@
 //     FBInstant.setLoadingProgress(100);
 //     FBInstant.startGameAsync().then(function() {
 // initialise Phaser
-game = new Phaser.Game(WIDTH, HEIGHT, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+game = new Phaser.Game(WIDTH, HEIGHT, Phaser.CANVAS, '', { preload: preload, create: create, update: update });
 
 WebFontConfig = {
 
