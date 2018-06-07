@@ -60,11 +60,11 @@ var game8state = {
 
       time_text = game.add.text(0, 0, "", time_text_style);
 
-      // instructions8
+      // ouverture8
 
-      instructions8 = game.add.image(0, 0, 'instructions8');
-      instructions8.x = WIDTH / 2 - instructions8.width / 2;
-      instructions8.y = HEIGHT / 8;
+      ouverture8 = game.add.image(0, 0, 'ouverture8');
+      ouverture8.x = WIDTH / 2 - ouverture8.width / 2;
+      ouverture8.y = HEIGHT / 8;
 
       launchgame8();
     },
@@ -108,6 +108,10 @@ function launchgame8() {
   tween.onComplete.add(function(){
     timer.resume();
     pauseVar = 0;
+    ouverture8.destroy();
+    instructions8 = game.add.image(0, 0, 'instructions8');
+    instructions8.x = WIDTH / 2 - instructions8.width / 2;
+    instructions8.y = HEIGHT / 8;
     enfant1.body.acceleration.y = 2000;
     enfant1.body.maxVelocity.y =  speed();
     enfant2.body.acceleration.x = 2000;

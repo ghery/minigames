@@ -51,11 +51,11 @@ var game2state = {
     }
      score = 0;
 
-     // instructions2
+     // ouverture2
 
-     instructions2 = game.add.image(0, 0, 'instructions2');
-     instructions2.x = WIDTH / 2 - instructions2.width / 2;
-     instructions2.y = HEIGHT / 8;
+     ouverture2 = game.add.image(0, 0, 'ouverture2');
+     ouverture2.x = WIDTH / 2 - ouverture2.width / 2;
+     ouverture2.y = HEIGHT / 8;
      launchgame2();
     },
 
@@ -114,6 +114,10 @@ function launchgame2() {
   tween.onComplete.add(function(){
     timer.resume();
     pauseVar = 0;
+    ouverture2.destroy();
+    instructions2 = game.add.image(0, 0, 'instructions2');
+    instructions2.x = WIDTH / 2 - instructions2.width / 2;
+    instructions2.y = HEIGHT / 8;
   }, this);
 }
 

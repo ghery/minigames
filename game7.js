@@ -90,11 +90,11 @@ var game7state = {
       timer = game.time.create(false);
       timer.start();
 
-      // instructions7
+      // ouverture7
 
-      instructions7 = game.add.image(0, 0, 'instructions7');
-      instructions7.x = WIDTH / 2 - instructions7.width / 2;
-      instructions7.y = HEIGHT / 8;
+      ouverture7 = game.add.image(0, 0, 'ouverture7');
+      ouverture7.x = WIDTH / 2 - ouverture7.width / 2;
+      ouverture7.y = HEIGHT / 8;
 
       time_text = game.add.text(0, 0, "", time_text_style);
       launchgame7();
@@ -215,5 +215,9 @@ function launchgame7() {
   tween.onComplete.add(function(){
     timer.resume();
     pauseVar = 0;
+    ouverture7.destroy();
+    instructions7 = game.add.image(0, 0, 'instructions7');
+    instructions7.x = WIDTH / 2 - instructions7.width / 2;
+    instructions7.y = HEIGHT / 8;
   }, this);
 }

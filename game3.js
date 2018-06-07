@@ -64,9 +64,9 @@ var game3state = {
 
       // INSTRUCTIONS
 
-      instructions3 = game.add.image(0, 0, 'instructions3');
-      instructions3.x = WIDTH / 2 - instructions3.width / 2;
-      instructions3.y =HEIGHT / 8;
+      ouverture3 = game.add.image(0, 0, 'ouverture3');
+      ouverture3.x = WIDTH / 2 - ouverture3.width / 2;
+      ouverture3.y =HEIGHT / 8;
 
       //PAUSE
       pauseButton = game.add.image(0, 0, 'pause');
@@ -121,5 +121,9 @@ function launchgame3() {
   tween = game.add.tween(black).to( { alpha: 0 }, 5000, "Linear", true);
   tween.onComplete.add(function(){
     pauseVar = 0;
+    ouverture3.destroy();
+    instructions3 = game.add.image(0, 0, 'instructions3');
+    instructions3.x = WIDTH / 2 - instructions3.width / 2;
+    instructions3.y =HEIGHT / 8;
   }, this);
 }
