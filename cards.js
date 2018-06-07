@@ -33,7 +33,7 @@ var cardstate = {
               var nameCard = 'blackCarte';
               card = game.add.image(0, 0, 'blackCarte');
           }
-          card.scale.setTo(0.2, 0.2);
+          card.scale.setTo(0.08, 0.08);
           card.x = 40 + WIDTH / 2 - ((card.width + 40) * maxColumn / 2) + (card.width + 40) * column;
           card.y = (40 + HEIGHT / 2 - (card.height + 40) * maxRow / 2) + (card.height + 40) * row;
           if (i == 0)
@@ -81,6 +81,7 @@ var cardstate = {
     },
     zoomCard : function(){
         cardSelected = game.add.image(0, 0, this.cardName);
+        cardSelected.scale.setTo(0.42, 0.42);
         cardSelected.x = WIDTH / 2 - cardSelected.width / 2;
         cardSelected.y = HEIGHT / 2 - cardSelected.height / 2;
         cardSelected.inputEnabled = true;
